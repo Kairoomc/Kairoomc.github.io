@@ -185,6 +185,7 @@ section{padding:100px 5%;position:relative;z-index:2}
 .b-fivem{background:rgba(255,92,40,.15);color:#FF9A67;border:1px solid rgba(255,92,40,.25)}
 .b-short{background:rgba(59,130,246,.15);color:#7EB5FF;border:1px solid rgba(59,130,246,.25)}
 .b-long{background:rgba(168,85,247,.15);color:#C084FC;border:1px solid rgba(168,85,247,.25)}
+.b-minecraft{background:rgba(34,197,94,.12);color:#6EE7A0;border:1px solid rgba(34,197,94,.22)}
 .vcard-title{font-family:var(--display);font-weight:600;font-size:13px;color:var(--t1);line-height:1.3}
 .port-more{text-align:center;margin-top:40px;font-size:14px;color:var(--t3);max-width:1180px;margin-left:auto;margin-right:auto}
 .port-more a{color:var(--acc);text-decoration:none;font-weight:600;transition:opacity .2s}
@@ -602,56 +603,156 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:32px 5%;di
     <div class="pills">
       <button class="pill on" onclick="filterVids('all',this)">Tout</button>
       <button class="pill" onclick="filterVids('fivem',this)">FiveM</button>
+      <button class="pill" onclick="filterVids('minecraft',this)">Minecraft</button>
       <button class="pill" onclick="filterVids('short',this)">Formats courts</button>
       <button class="pill" onclick="filterVids('long',this)">Long</button>
     </div>
   </div>
   <div class="pgrid rv d1" id="pgrid">
-    <a href="https://youtu.be/-0JyB8aEMfI" target="_blank" class="vcard" data-cat="fivem">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/-0JyB8aEMfI/maxresdefault.jpg')"></div>
-      <div class="vcard-overlay"><div class="play-btn"></div></div>
-      <div class="vcard-meta"><span class="badge b-fivem">FiveM</span><div class="vcard-title">Trailer FiveM — Serveur RP</div></div>
-    </a>
-    <a href="https://youtu.be/xFJgQQx498A" target="_blank" class="vcard" data-cat="fivem">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/xFJgQQx498A/maxresdefault.jpg')"></div>
-      <div class="vcard-overlay"><div class="play-btn"></div></div>
-      <div class="vcard-meta"><span class="badge b-fivem">FiveM</span><div class="vcard-title">Trailer FiveM — Cinématique</div></div>
-    </a>
+
+    <!-- FiveM -->
     <a href="https://vt.tiktok.com/ZS92rCUc1/" target="_blank" class="vcard vcard-tall" data-cat="fivem">
-      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Voir sur TikTok</span></div>
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>EastBorn FA</span></div>
       <div class="vcard-overlay"><div class="play-btn"></div></div>
-      <div class="vcard-meta"><span class="badge b-fivem">FiveM</span><div class="vcard-title">Trailer FiveM — TikTok</div></div>
+      <div class="vcard-meta"><span class="badge b-fivem">FiveM</span><div class="vcard-title">EastBorn FA — Annonce ouverture</div></div>
     </a>
     <a href="https://vt.tiktok.com/ZS98Ux96q/" target="_blank" class="vcard vcard-tall" data-cat="fivem">
-      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Voir sur TikTok</span></div>
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>AsgardRP</span></div>
       <div class="vcard-overlay"><div class="play-btn"></div></div>
-      <div class="vcard-meta"><span class="badge b-fivem">FiveM</span><div class="vcard-title">Trailer FiveM — TikTok Edit</div></div>
+      <div class="vcard-meta"><span class="badge b-fivem">FiveM</span><div class="vcard-title">AsgardRP — Trailer immersif</div></div>
     </a>
-    <a href="https://www.youtube.com/shorts/YaVdTA4xe5k" target="_blank" class="vcard vcard-tall" data-cat="short">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/YaVdTA4xe5k/maxresdefault.jpg');aspect-ratio:9/16"></div>
-      <div class="vcard-overlay"><div class="play-btn"></div></div>
-      <div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">YouTube Short — Haute rétention</div></div>
-    </a>
-    <a href="https://youtube.com/shorts/P9u2KEKMwpA" target="_blank" class="vcard vcard-tall" data-cat="short">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/P9u2KEKMwpA/maxresdefault.jpg');aspect-ratio:9/16"></div>
-      <div class="vcard-overlay"><div class="play-btn"></div></div>
-      <div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">YouTube Short — Viral Edit</div></div>
-    </a>
-    <a href="https://youtube.com/shorts/ib5CFRxw2jU" target="_blank" class="vcard vcard-tall" data-cat="short">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/ib5CFRxw2jU/maxresdefault.jpg');aspect-ratio:9/16"></div>
-      <div class="vcard-overlay"><div class="play-btn"></div></div>
-      <div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">Short — Dynamic Cut</div></div>
-    </a>
+
+    <!-- Long -->
     <a href="https://youtu.be/xQv5bDGwK9M" target="_blank" class="vcard" data-cat="long">
       <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/xQv5bDGwK9M/maxresdefault.jpg')"></div>
       <div class="vcard-overlay"><div class="play-btn"></div></div>
-      <div class="vcard-meta"><span class="badge b-long">Format Long</span><div class="vcard-title">Vidéo longue — Premium Edit</div></div>
+      <div class="vcard-meta"><span class="badge b-long">Format Long</span><div class="vcard-title">Anakin — Les célébrités sur Roblox</div></div>
+    </a>
+
+    <!-- Shorts / TikTok -->
+    <a href="https://www.tiktok.com/@flowhardware_officiel/video/7619653330758880534" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>FlowHardware</span></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">FlowHardware — Edit #1</div></div>
+    </a>
+    <a href="https://www.tiktok.com/@flowhardware_officiel/video/7617033963256679702" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>FlowHardware</span></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">FlowHardware — Edit #2</div></div>
+    </a>
+    <a href="https://www.tiktok.com/@gabinpriv/video/7616031009066339606" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Gabin</span></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">Gabin — Short viral</div></div>
+    </a>
+    <a href="https://youtube.com/shorts/zobx1_c7Xk4" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/zobx1_c7Xk4/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">TikSuccess — Portfolio 2</div></div>
+    </a>
+    <a href="https://youtube.com/shorts/_Xl47VHg6OM" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/_Xl47VHg6OM/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">Novarya — Edit #2</div></div>
+    </a>
+    <a href="https://www.tiktok.com/@helloserv.fr/video/7613821691881377046" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>HelloServ</span></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">HelloServ — Contenu brand</div></div>
+    </a>
+    <a href="https://www.tiktok.com/@yorkhost_officiel/video/7614975599165115670" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>YorkHost</span></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">YorkHost ☁️ — Brand edit</div></div>
+    </a>
+    <a href="https://www.tiktok.com/@paulfromcynique/video/7613451273081277729" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Cynique</span></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">Cynique — Edit marque #1</div></div>
+    </a>
+    <a href="https://www.tiktok.com/@paulfromcynique/video/7614890781861514528" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Cynique</span></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">Cynique — Edit marque #2</div></div>
     </a>
     <a href="https://youtube.com/shorts/nFs5wl4cHjE" target="_blank" class="vcard vcard-tall" data-cat="short">
       <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/nFs5wl4cHjE/maxresdefault.jpg');aspect-ratio:9/16"></div>
       <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">Cynique — Short marque</div></div>
+    </a>
+    <a href="https://www.youtube.com/shorts/Q_cudD2hJNs" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/Q_cudD2hJNs/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">AwaZeK — 100 TNT 💥</div></div>
+    </a>
+    <a href="https://www.youtube.com/shorts/X7W9Nv15ZUI" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/X7W9Nv15ZUI/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">AwaZeK — Astuce richesse 💎</div></div>
+    </a>
+    <a href="https://www.youtube.com/shorts/vTDBH6kadPw" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/vTDBH6kadPw/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">AwaZeK — Épée créatif 😱</div></div>
+    </a>
+    <a href="https://youtube.com/shorts/-a8BvgDAzQ8" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/-a8BvgDAzQ8/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">Short — Edit premium</div></div>
+    </a>
+    <a href="https://youtube.com/shorts/9RCVY_z-tNU" target="_blank" class="vcard vcard-tall" data-cat="short">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/9RCVY_z-tNU/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
       <div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">Short — Contenu viral</div></div>
     </a>
+
+    <!-- Minecraft -->
+    <a href="https://vt.tiktok.com/ZSuULt7Q5/" target="_blank" class="vcard vcard-tall" data-cat="minecraft">
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Novarya</span></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Novarya — Trailer Survie</div></div>
+    </a>
+    <a href="https://www.youtube.com/shorts/YaVdTA4xe5k" target="_blank" class="vcard vcard-tall" data-cat="minecraft">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/YaVdTA4xe5k/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Hycraft Ages — Lancement serveur</div></div>
+    </a>
+    <a href="https://www.tiktok.com/@cobblenite/video/7614136890937134339" target="_blank" class="vcard vcard-tall" data-cat="minecraft">
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Cobblenite</span></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Cobblenite — Trailer serveur</div></div>
+    </a>
+    <a href="https://www.youtube.com/shorts/cdjbPW0Zmao" target="_blank" class="vcard vcard-tall" data-cat="minecraft">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/cdjbPW0Zmao/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Evaliacraft — RDV 15 mai</div></div>
+    </a>
+    <a href="https://youtube.com/shorts/P9u2KEKMwpA" target="_blank" class="vcard vcard-tall" data-cat="minecraft">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/P9u2KEKMwpA/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">ForgeMC — Phase 2</div></div>
+    </a>
+    <a href="https://youtube.com/shorts/ib5CFRxw2jU" target="_blank" class="vcard vcard-tall" data-cat="minecraft">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/ib5CFRxw2jU/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">ForgeMC — Edit #1</div></div>
+    </a>
+    <a href="https://youtube.com/shorts/wqAy93zker0" target="_blank" class="vcard vcard-tall" data-cat="minecraft">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/wqAy93zker0/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Arkium — Projet #1</div></div>
+    </a>
+    <a href="https://youtube.com/shorts/zDtWlN0bFOw" target="_blank" class="vcard vcard-tall" data-cat="minecraft">
+      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/zDtWlN0bFOw/maxresdefault.jpg');aspect-ratio:9/16"></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Atheramc — Survie RPG</div></div>
+    </a>
+    <a href="https://www.tiktok.com/@atheramc/video/7614190643698748694" target="_blank" class="vcard vcard-tall" data-cat="minecraft">
+      <div class="tt-thumb"><svg width="34" height="40" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Atheramc</span></div>
+      <div class="vcard-overlay"><div class="play-btn"></div></div>
+      <div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Atheramc — TikTok RPG</div></div>
+    </a>
+
   </div>
   <p class="port-more rv d2">Et bien plus encore — <a href="https://discord.gg/KcwCGdQbQz" target="_blank">demander le portfolio complet sur Discord →</a></p>
 </section>
