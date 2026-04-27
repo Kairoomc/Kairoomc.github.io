@@ -183,6 +183,25 @@ section{padding:110px 6%;position:relative;z-index:2}
 .trust-note{margin-top:14px;padding:14px 16px;background:var(--s2);border:1px solid var(--line);border-radius:8px;font-size:13px;color:var(--t2)}
 .trust-note strong{color:var(--t1)}
 
+/* TESTIMONIALS */
+#testimonials{background:var(--s1)}
+.testi-inner{max-width:1200px;margin:0 auto}
+.testi-header{margin-bottom:52px}
+.testi-track{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.testi-track{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.testi-track{grid-template-columns:1fr}}
+.tcard{background:var(--s2);border:1px solid var(--line2);border-radius:10px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;transition:border-color .25s,background .25s,transform .35s var(--ease)}
+.tcard:hover{border-color:var(--line3);background:var(--s3);transform:translateY(-3px)}
+.tcard.featured{border-color:rgba(168,85,247,.2);background:linear-gradient(145deg,rgba(168,85,247,.05),var(--s2))}
+.tcard.featured::before{content:'';display:block;height:1.5px;background:var(--grd);border-radius:10px 10px 0 0;margin:-24px -22px 0;margin-bottom:16px}
+.tcard-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.tcard-author{display:flex;flex-direction:column;gap:2px}
+.tcard-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--t1)}
+.tcard-type{font-size:11px;color:var(--t3);font-weight:500}
+.stars{display:flex;gap:2px;font-size:14px}
+.tcard-text{font-size:13.5px;color:var(--t2);line-height:1.7;font-weight:400;flex:1}
+.tcard-date{font-size:10px;color:var(--t4);font-weight:500;letter-spacing:.04em}
+
 /* STEPS */
 #steps{background:var(--s1)}
 .steps-layout{max-width:1200px;margin:0 auto}
@@ -530,6 +549,112 @@ footer{background:var(--s1);border-top:1px solid var(--line);padding:28px 6%;dis
         <div class="client-chip"><div class="chip-av av5">AW</div><span class="chip-name">AwaZeK</span></div>
       </div>
       <div class="trust-note"><strong>+28 autres clients</strong> nous font confiance pour leur contenu gaming.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testi-inner">
+    <div class="testi-header rv">
+      <span class="label">Avis clients</span>
+      <h2 class="h2" style="margin-bottom:0">Ce qu'ils <em>disent</em> de nous.</h2>
+    </div>
+    <div class="testi-track">
+
+      <!-- Florentin Dev — avis le plus long, featured -->
+      <div class="tcard featured rv d1" style="grid-row:span 2">
+        <div class="tcard-top">
+          <div class="tcard-author">
+            <div class="tcard-name">@Florentin Dev</div>
+            <div class="tcard-type">Montage · Novarya</div>
+          </div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <p class="tcard-text">Bonjour à tous, je suis pour l'instant très content du travail de Kairo &amp; Legs. J'ai commandé 2 vidéos pour mon serveur Novarya — les deux ont été réalisées en quelques jours seulement. Ils sont professionnels, font valider chaque étape et effectuent de nombreuses retouches.<br><br>J'ai fait recommencer 4 fois la voix off car je voulais quelque chose de très précis, et Kairo ne m'a rien dit et l'a refait sans problème.<br><br>Bref, pour le tarif pratiqué, je recommande vivement !</p>
+        <div class="tcard-date">28 fév. 2026</div>
+      </div>
+
+      <!-- Valentin — FlowHardware -->
+      <div class="tcard featured rv d2" style="grid-row:span 2">
+        <div class="tcard-top">
+          <div class="tcard-author">
+            <div class="tcard-name">@Valentin</div>
+            <div class="tcard-type">Montage · FlowHardware</div>
+          </div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <p class="tcard-text">Les services de ce studio sont vraiment qualitatifs. Au début, ils m'ont contacté et je me suis dit qu'on avait déjà des personnes dans l'équipe capables de gérer ça. Malgré tout, j'ai remonté leur proposition à l'équipe de FlowHardware, et ils ont pensé que ça valait le coup de tester.<br><br>Le résultat a été livré rapidement, en moins de 48 heures, et était très qualitatif. Nous avons décidé de faire de ce studio un partenaire principal pour tout ce qui touche au montage et aux vidéos.<br><br><strong style="color:var(--t1)">En résumé : rapide, efficace, et très qualitatif — je recommande vraiment.</strong></p>
+        <div class="tcard-date">23 mars 2026</div>
+      </div>
+
+      <!-- paul -->
+      <div class="tcard rv d3">
+        <div class="tcard-top">
+          <div class="tcard-author">
+            <div class="tcard-name">@paul</div>
+            <div class="tcard-type">Montage</div>
+          </div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <p class="tcard-text">Bonne qualité de montage et temps de livraison rapide même après 3 retouches, je recommande c'est très pro.</p>
+        <div class="tcard-date">4 mars 2026</div>
+      </div>
+
+      <!-- Anonyme 1 -->
+      <div class="tcard rv d4">
+        <div class="tcard-top">
+          <div class="tcard-author">
+            <div class="tcard-name">Client vérifié</div>
+            <div class="tcard-type">Montage</div>
+          </div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <p class="tcard-text">Très bon montage pour le prix !</p>
+        <div class="tcard-date">12 avril 2026</div>
+      </div>
+
+      <!-- Anonyme 2 -->
+      <div class="tcard rv d2">
+        <div class="tcard-top">
+          <div class="tcard-author">
+            <div class="tcard-name">Client vérifié</div>
+            <div class="tcard-type">Montage</div>
+          </div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <p class="tcard-text">Service rapide et efficace ! Je recommande ! Le montage était fluide et dynamique !</p>
+        <div class="tcard-date">23 mars 2026</div>
+      </div>
+
+      <!-- ReviewB -->
+      <div class="tcard rv d3">
+        <div class="tcard-top">
+          <div class="tcard-author">
+            <div class="tcard-name">@ReviewB</div>
+            <div class="tcard-type">Montage</div>
+          </div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <p class="tcard-text">Très bon montage professionnel et rapide.</p>
+        <div class="tcard-date">22 avril 2026</div>
+      </div>
+
+      <!-- Rengan19 -->
+      <div class="tcard rv d4">
+        <div class="tcard-top">
+          <div class="tcard-author">
+            <div class="tcard-name">@Rengan19</div>
+            <div class="tcard-type">Montage</div>
+          </div>
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+        </div>
+        <p class="tcard-text">Vidéo au top rapide et efficace, je recommande.</p>
+        <div class="tcard-date">24 avril 2026</div>
+      </div>
+
     </div>
   </div>
 </section>
