@@ -3,892 +3,1019 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Slide Studio — Trailers & Formats Courts</title>
+<title>Slide Studio — Studio Vidéo Gaming Premium</title>
+<meta name="description" content="Slide Studio — Production vidéo gaming premium. Trailers FiveM, Minecraft, formats courts. Résultats mesurables.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
+html{scroll-behavior:smooth}
 :root{
-  --bg:#080909;--bg2:#0d0f0f;--bg3:#111313;--bg4:#161919;
-  --line:rgba(255,255,255,0.06);--line2:rgba(255,255,255,0.10);
-  --t1:#F2F0EC;--t2:rgba(242,240,236,0.50);--t3:rgba(242,240,236,0.28);
-  --acc:#E8642A;--acc2:#C44FC4;--acc3:#2A7AE8;
-  --grd:linear-gradient(110deg,#E8642A 0%,#C44FC4 55%,#2A7AE8 100%);
-  --r:14px;--r2:24px;
-  --serif:'Instrument Serif',Georgia,serif;
-  --sans:'Outfit',sans-serif;
-  --ease:cubic-bezier(.16,1,.3,1);
+  --bg:#060608;--s1:#0A0A0F;--s2:#0D0D14;--s3:#12121A;--s4:#181822;
+  --line:rgba(255,255,255,.05);--line2:rgba(255,255,255,.09);--line3:rgba(255,255,255,.14);
+  --t1:#F0F0FF;--t2:rgba(240,240,255,.52);--t3:rgba(240,240,255,.28);--t4:rgba(240,240,255,.12);
+  --c1:#38BDF8;--c2:#818CF8;--c3:#A855F7;--c4:#EC4899;
+  --grd:linear-gradient(135deg,#38BDF8 0%,#818CF8 35%,#A855F7 65%,#EC4899 100%);
+  --ease:cubic-bezier(.22,1,.36,1);
 }
-body{background:var(--bg);color:var(--t1);font-family:var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none;}
-a,button{cursor:none;}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");opacity:.4;}
+*{-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--t1);font-family:'Inter',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none}
+a,button{cursor:none}
+@media(hover:none){body,a,button{cursor:auto}}
+
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.025;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px}
 
 /* CURSOR */
-#cur{position:fixed;width:8px;height:8px;background:var(--acc);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:screen;}
-#cur-r{position:fixed;width:36px;height:36px;border:1px solid rgba(232,100,42,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);}
-@media(hover:none){#cur,#cur-r{display:none;}body,a,button{cursor:auto;}}
+#cur{position:fixed;width:8px;height:8px;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);background:var(--c3);transition:width .12s,height .12s}
+#cur-ring{position:fixed;width:32px;height:32px;border-radius:50%;border:1px solid rgba(168,85,247,.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .28s var(--ease),height .28s var(--ease)}
+body.hov #cur{width:14px;height:14px;background:rgba(240,240,255,.9)}
+body.hov #cur-ring{width:44px;height:44px;border-color:rgba(240,240,255,.2)}
+@media(hover:none){#cur,#cur-ring{display:none}}
+
+/* ── URGENCY BANNER ── */
+.urgency-banner{background:linear-gradient(90deg,rgba(56,189,248,.1),rgba(168,85,247,.12),rgba(236,72,153,.1));border-bottom:1px solid rgba(168,85,247,.2);padding:9px 5%;text-align:center;font-size:12px;font-weight:600;color:var(--t2);letter-spacing:.02em;font-family:'Space Grotesk',sans-serif;position:relative;z-index:490}
+.urgency-banner strong{color:var(--t1)}
+.urgency-banner .dot-pulse{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--c4);margin-right:8px;animation:dp 1.8s ease infinite;vertical-align:middle}
+@keyframes dp{0%,100%{box-shadow:0 0 0 0 rgba(236,72,153,.6)}50%{box-shadow:0 0 0 5px rgba(236,72,153,0)}}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:72px;transition:background .5s,border-color .5s;border-bottom:1px solid transparent;}
-nav.stuck{background:rgba(8,9,9,.88);backdrop-filter:blur(20px);border-color:var(--line);}
-.nav-logo{font-family:var(--sans);font-weight:700;font-size:17px;letter-spacing:-.3px;text-decoration:none;color:var(--t1);display:flex;align-items:center;gap:8px;}
-.nav-logo-dot{width:7px;height:7px;border-radius:50%;background:var(--acc);display:inline-block;animation:dotPulse 2.5s ease infinite;}
-@keyframes dotPulse{0%,100%{box-shadow:0 0 0 0 rgba(232,100,42,.7)}50%{box-shadow:0 0 0 6px rgba(232,100,42,0)}}
-.nav-links{display:flex;gap:32px;list-style:none;}
-.nav-links a{font-size:13px;font-weight:500;letter-spacing:.04em;color:var(--t2);text-decoration:none;transition:color .2s;}
-.nav-links a:hover{color:var(--t1);}
-.nav-cta{font-family:var(--sans);font-weight:600;font-size:13px;padding:9px 22px;border-radius:50px;background:var(--t1);color:var(--bg);text-decoration:none;transition:opacity .2s,transform .2s;letter-spacing:-.1px;}
-.nav-cta:hover{opacity:.88;transform:scale(1.02);}
+#nav{position:fixed;top:36px;left:0;right:0;z-index:500;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;transition:background .4s,border-color .4s,top .4s;border-bottom:1px solid transparent}
+#nav.stuck{background:rgba(6,6,8,.92);backdrop-filter:blur(28px) saturate(180%);border-color:var(--line2);top:0}
+.nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:var(--t1);letter-spacing:-.3px}
+.nav-logo-icon{width:26px;height:26px;flex-shrink:0}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--t3);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--t1)}
+.nav-dash{background:rgba(168,85,247,.12)!important;border:1px solid rgba(168,85,247,.25)!important;border-radius:4px!important;padding:4px 10px!important;color:var(--c3)!important;font-size:12px!important;}
+.nav-dash:hover{background:rgba(168,85,247,.22)!important;color:var(--t1)!important;}
+.btn-nav{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;padding:9px 20px;border-radius:6px;border:none;background:var(--t1);color:var(--bg);transition:opacity .2s,transform .2s;white-space:nowrap}
+.btn-nav:hover{opacity:.88;transform:translateY(-1px)}
+@media(max-width:768px){.nav-links{display:none}}
+@media(max-width:480px){.btn-nav{display:none}}
 
 /* HERO */
-#hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 5% 100px;overflow:hidden;}
-.blob{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;will-change:transform;}
-.blob-1{width:600px;height:600px;background:rgba(232,100,42,.12);top:-150px;right:-100px;animation:blobDrift1 20s ease-in-out infinite alternate;}
-.blob-2{width:700px;height:700px;background:rgba(196,79,196,.09);bottom:-200px;left:-150px;animation:blobDrift2 25s ease-in-out infinite alternate;}
-.blob-3{width:400px;height:400px;background:rgba(42,122,232,.07);top:40%;left:55%;animation:blobDrift1 18s ease-in-out infinite alternate;}
-@keyframes blobDrift1{to{transform:translate(40px,-50px) scale(1.1)}}
-@keyframes blobDrift2{to{transform:translate(-30px,40px) scale(1.08)}}
-.hero-line{position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.06) 30%,rgba(255,255,255,.06) 70%,transparent 100%);pointer-events:none;}
-.hero-inner{position:relative;z-index:2;max-width:960px;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:40px;opacity:0;animation:fadeUp .8s var(--ease) .1s forwards;}
-.hero-eyebrow span{color:var(--acc);}
-.hero-h1{font-family:var(--serif);font-size:clamp(52px,8.5vw,118px);line-height:1.0;letter-spacing:-2px;margin-bottom:36px;opacity:0;animation:fadeUp .9s var(--ease) .2s forwards;}
-.hero-h1 em{font-style:italic;color:var(--t2);}
-.acc-word{background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:gradShift 6s linear infinite;}
-@keyframes gradShift{0%{background-position:0% center}100%{background-position:200% center}}
-.hero-sub{font-size:clamp(16px,1.8vw,19px);font-weight:300;color:var(--t2);max-width:540px;margin:0 auto 52px;line-height:1.75;opacity:0;animation:fadeUp .9s var(--ease) .35s forwards;}
-.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .9s var(--ease) .45s forwards;margin-bottom:80px;}
-.hero-stats{display:flex;justify-content:center;gap:0;opacity:0;animation:fadeUp .9s var(--ease) .55s forwards;}
-.hstat{padding:24px 44px;text-align:center;position:relative;}
-.hstat+.hstat::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;background:var(--line2);}
-.hstat-n{font-family:var(--serif);font-size:44px;letter-spacing:-2px;background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:1;margin-bottom:4px;}
-.hstat-l{font-size:12px;font-weight:500;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-.scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--t3);font-size:11px;letter-spacing:.1em;text-transform:uppercase;z-index:2;animation:fadeUp 1s var(--ease) 1s both;}
-.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--line2),transparent);animation:scrollAnim 2s ease-in-out infinite;}
-@keyframes scrollAnim{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.5);opacity:.4}}
+#hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:110px 5% 80px;overflow:hidden}
+.glow{position:absolute;border-radius:50%;pointer-events:none;filter:blur(120px)}
+.glow-1{width:min(700px,100vw);height:500px;background:rgba(56,189,248,.06);top:-80px;right:-150px;animation:gd 24s ease-in-out infinite alternate}
+.glow-2{width:min(600px,100vw);height:600px;background:rgba(168,85,247,.05);bottom:-150px;left:-80px;animation:gd 30s ease-in-out infinite alternate-reverse}
+.glow-3{width:300px;height:300px;background:rgba(236,72,153,.04);top:40%;left:50%;animation:gd 20s ease-in-out infinite alternate}
+@keyframes gd{to{transform:translate(40px,-60px) scale(1.1)}}
+
+.hero-label{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line3);border-radius:4px;padding:5px 12px;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--t3);margin-bottom:28px;opacity:0;animation:fu .7s var(--ease) .1s forwards;position:relative;z-index:2}
+.hero-label .dot-live{width:5px;height:5px;border-radius:50%;background:var(--c3);flex-shrink:0;animation:blink 2.4s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+.hero-h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,7vw,112px);font-weight:700;line-height:.94;letter-spacing:clamp(-2px,-0.04em,-4px);margin-bottom:22px;position:relative;z-index:2;opacity:0;animation:fu .9s var(--ease) .18s forwards}
+.hero-h1 .grad{background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:gm 6s linear infinite}
+.hero-h1 .dim{color:var(--t3)}
+@keyframes gm{0%{background-position:0%}100%{background-position:200%}}
+
+.hero-sub{font-size:clamp(14px,1.6vw,17px);color:var(--t2);max-width:420px;line-height:1.75;margin-bottom:36px;position:relative;z-index:2;opacity:0;animation:fu .9s var(--ease) .28s forwards}
+
+/* ── CRO: mini social proof sous le sous-titre ── */
+.hero-proof{display:flex;align-items:center;gap:12px;margin-bottom:32px;position:relative;z-index:2;opacity:0;animation:fu .9s var(--ease) .35s forwards;flex-wrap:wrap}
+.proof-avatars{display:flex}
+.proof-av{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:700;color:#fff;margin-left:-8px;flex-shrink:0}
+.proof-av:first-child{margin-left:0}
+.pa1{background:linear-gradient(135deg,#38BDF8,#818CF8)}
+.pa2{background:linear-gradient(135deg,#818CF8,#A855F7)}
+.pa3{background:linear-gradient(135deg,#A855F7,#EC4899)}
+.pa4{background:linear-gradient(135deg,#38BDF8,#EC4899)}
+.pa5{background:linear-gradient(135deg,#818CF8,#EC4899)}
+.proof-text{font-size:12px;color:var(--t2);font-weight:500}
+.proof-text strong{color:var(--t1);font-weight:700}
+.proof-stars{font-size:11px;color:#FBBF24;letter-spacing:1px}
+
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:2;margin-bottom:16px;opacity:0;animation:fu .9s var(--ease) .44s forwards}
+
+/* ── CRO: garantie sous les boutons ── */
+.hero-guarantee{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--t3);position:relative;z-index:2;margin-bottom:44px;opacity:0;animation:fu .9s var(--ease) .5s forwards}
+.hero-guarantee svg{flex-shrink:0;opacity:.6}
+
+.hero-stats{display:flex;flex-wrap:wrap;position:relative;z-index:2;opacity:0;animation:fu .9s var(--ease) .56s forwards;max-width:100%}
+.hstat{padding:14px 24px;display:flex;flex-direction:column;gap:3px;border:1px solid var(--line2);flex:1;min-width:80px}
+.hstat:first-child{border-radius:8px 0 0 8px}
+.hstat:last-child{border-radius:0 8px 8px 0}
+.hstat+.hstat{border-left:none}
+.hstat-n{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;letter-spacing:-1.5px;line-height:1;background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hstat-l{font-size:10px;color:var(--t3);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+
+.hero-scroll{position:absolute;bottom:24px;left:5%;display:flex;align-items:center;gap:10px;opacity:0;animation:fu 1s var(--ease) 1s both;z-index:2}
+.hero-scroll-line{width:36px;height:1px;background:linear-gradient(to right,var(--line3),transparent)}
+.hero-scroll-text{font-size:10px;color:var(--t4);letter-spacing:.1em;text-transform:uppercase}
+
+@keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* MARQUEE */
+.marquee-wrap{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;overflow:hidden;background:var(--s1);position:relative;z-index:2}
+.marquee-track{display:flex;animation:marquee 22s linear infinite;width:max-content}
+.marquee-item{display:flex;align-items:center;gap:10px;padding:0 32px;white-space:nowrap;font-size:11px;font-weight:600;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;font-family:'Space Grotesk',sans-serif}
+.marquee-item .dot{width:3px;height:3px;border-radius:50%;background:var(--c3);flex-shrink:0}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* SECTIONS */
-section{padding:120px 5%;position:relative;z-index:2;}
-.s-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:20px;}
-h2.s-title{font-family:var(--serif);font-size:clamp(36px,5vw,64px);letter-spacing:-1.5px;line-height:1.05;margin-bottom:20px;}
-h2.s-title em{font-style:italic;color:var(--t2);}
-.s-sub{font-size:17px;font-weight:300;color:var(--t2);line-height:1.75;max-width:480px;}
-.hr{width:100%;height:1px;background:var(--line);border:none;margin:0;}
-.rv{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
-.rv.on{opacity:1;transform:none;}
-.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+section{padding:80px 5%;position:relative;z-index:2}
+@media(max-width:600px){section{padding:60px 5%}}
+.divider{width:100%;height:1px;background:var(--line);border:none;position:relative;z-index:2}
+.label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c3);margin-bottom:16px;display:block;font-family:'Space Grotesk',sans-serif}
+.h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4vw,56px);font-weight:700;letter-spacing:clamp(-1.5px,-0.04em,-2.5px);line-height:1.02;margin-bottom:16px}
+.h2 em{font-style:normal;color:var(--t3);font-weight:300}
+.h2 .g{background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.body-text{font-size:14px;color:var(--t2);line-height:1.8;max-width:400px}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.on{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
 
-/* ABOUT */
-#about{background:var(--bg2);}
-.about-wrap{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
-.about-left p{font-size:17px;font-weight:300;color:var(--t2);line-height:1.8;margin-top:32px;max-width:420px;}
-.feature-grid{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:2px;}
-.feat{padding:28px 26px;background:var(--bg3);position:relative;overflow:hidden;transition:background .3s;}
-.feat:first-child{border-radius:var(--r) 0 0 0;}.feat:nth-child(2){border-radius:0 var(--r) 0 0;}.feat:nth-child(3){border-radius:0 0 0 var(--r);}.feat:last-child{border-radius:0 0 var(--r) 0;}
-.feat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grd);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);}
-.feat:hover{background:var(--bg4);}.feat:hover::before{transform:scaleX(1);}
-.feat-icon{font-size:22px;margin-bottom:14px;display:block;}
-.feat-title{font-weight:600;font-size:15px;margin-bottom:6px;}
-.feat-desc{font-size:13px;color:var(--t2);line-height:1.6;font-weight:300;}
-.about-right{padding-top:8px;}
-.workflow-card{background:var(--bg3);border:1px solid var(--line2);border-radius:var(--r2);padding:40px;position:relative;overflow:hidden;}
-.workflow-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--grd);opacity:.6;}
-.wc-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:32px;}
-.wstep{display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line);}
-.wstep:last-child{border-bottom:none;padding-bottom:0;}
-.wstep-num{width:32px;height:32px;border-radius:50%;flex-shrink:0;background:var(--grd);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff;}
-.wstep-title{font-weight:600;font-size:15px;margin-bottom:3px;}
-.wstep-desc{font-size:13px;color:var(--t2);font-weight:300;line-height:1.55;}
+/* SERVICES */
+#services{background:var(--s1)}
+.services-layout{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+@media(max-width:860px){.services-layout{grid-template-columns:1fr;gap:40px}}
+.serv-cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:40px}
+.sc{background:var(--s2);padding:24px 22px;transition:background .25s}
+.sc:hover{background:var(--s3)}
+.sc-icon{font-size:20px;margin-bottom:10px}
+.sc-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;margin-bottom:5px}
+.sc-desc{font-size:12px;color:var(--t2);line-height:1.6}
+.proc-card{background:var(--s2);border:1px solid var(--line2);border-radius:12px;padding:32px 28px;position:relative;overflow:hidden}
+.proc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:var(--grd)}
+.proc-tag{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t4);margin-bottom:24px;font-family:'Space Grotesk',sans-serif}
+.proc-step{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.proc-step:last-child{border-bottom:none;padding-bottom:0}
+.proc-step:first-child{padding-top:0}
+.proc-n{width:24px;height:24px;border-radius:50%;background:var(--grd);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;color:#fff}
+.proc-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;margin-bottom:2px}
+.proc-desc{font-size:12px;color:var(--t2);line-height:1.55}
 
 /* PORTFOLIO */
-#portfolio{background:var(--bg);}
-.portfolio-head{max-width:1200px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;gap:24px;flex-wrap:wrap;}
-.filter-pills{display:flex;gap:8px;flex-wrap:wrap;}
-.pill{padding:8px 20px;border-radius:50px;font-size:13px;font-weight:500;border:1px solid var(--line2);background:transparent;color:var(--t2);cursor:none;transition:all .25s;letter-spacing:.02em;}
-.pill:hover{border-color:rgba(232,100,42,.4);color:var(--t1);}
-.pill.active{background:var(--t1);color:var(--bg);border-color:var(--t1);}
-.pgrid{max-width:1200px;margin:0 auto;columns:3;column-gap:16px;}
-@media(max-width:900px){.pgrid{columns:2;}}
-@media(max-width:560px){.pgrid{columns:1;}}
-.vcard{display:block;break-inside:avoid;margin-bottom:16px;position:relative;border-radius:var(--r);overflow:hidden;background:var(--bg3);border:1px solid var(--line);text-decoration:none;cursor:none;transition:border-color .3s,transform .4s var(--ease),box-shadow .4s;}
-.vcard:hover{border-color:var(--line2);transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.5);}
-.vcard-thumb{width:100%;display:block;background-size:cover;background-position:center;background-color:var(--bg4);aspect-ratio:16/10;transition:transform .5s var(--ease);}
-.vcard:hover .vcard-thumb{transform:scale(1.05);}
-.vcard-tall .vcard-thumb{aspect-ratio:9/16;}
-.tt-thumb{aspect-ratio:9/16;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(160deg,#0f0015 0%,#050010 100%);}
-.tt-thumb svg{opacity:.5;}.tt-thumb span{font-size:12px;color:var(--t3);font-weight:500;letter-spacing:.06em;}
-.vcard-info{padding:16px 18px 18px;}
-.vcard-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:3px 10px;border-radius:50px;margin-bottom:7px;}
-.b-fivem{background:rgba(232,100,42,.15);color:#FF9A67;border:1px solid rgba(232,100,42,.25);}
-.b-short{background:rgba(42,122,232,.15);color:#6AA9FF;border:1px solid rgba(42,122,232,.25);}
-.b-long{background:rgba(196,79,196,.15);color:#D98CFF;border:1px solid rgba(196,79,196,.25);}
-.b-tiktok{background:rgba(255,255,255,.06);color:var(--t2);border:1px solid var(--line2);}
-.vcard-title{font-weight:600;font-size:14px;color:var(--t1);line-height:1.35;}
-.vcard-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.85);width:52px;height:52px;border-radius:50%;background:rgba(8,9,9,.6);backdrop-filter:blur(8px);border:1.5px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s,transform .3s var(--ease),background .3s;}
-.vcard:hover .vcard-play{opacity:1;transform:translate(-50%,-50%) scale(1);background:rgba(232,100,42,.75);border-color:rgba(255,255,255,.15);}
-.vcard-play::after{content:'';border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px;}
-.portfolio-more{text-align:center;margin-top:48px;font-size:14px;color:var(--t3);}
-.portfolio-more a{color:var(--acc);text-decoration:none;font-weight:600;transition:opacity .2s;}
-.portfolio-more a:hover{opacity:.75;}
+#portfolio{background:var(--bg)}
+.port-header{max-width:1160px;margin:0 auto 44px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{padding:6px 14px;border-radius:4px;font-size:11px;font-weight:600;border:1px solid var(--line2);background:transparent;color:var(--t3);transition:all .2s;font-family:'Space Grotesk',sans-serif}
+.pill:hover{border-color:var(--line3);color:var(--t1)}
+.pill.on{background:var(--t1);color:var(--bg);border-color:var(--t1)}
+.pgrid{max-width:1160px;margin:0 auto;columns:3;column-gap:10px}
+@media(max-width:860px){.pgrid{columns:2}}
+@media(max-width:520px){.pgrid{columns:1}}
+.vcard{display:block;break-inside:avoid;margin-bottom:10px;position:relative;border-radius:8px;overflow:hidden;background:var(--s2);border:1px solid var(--line);text-decoration:none;transition:border-color .25s,transform .35s var(--ease),box-shadow .35s}
+.vcard:hover{border-color:var(--line3);transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,.5)}
+.vcard-thumb{width:100%;aspect-ratio:16/9;display:block;background-size:cover;background-position:center;background-color:var(--s3);transition:transform .45s var(--ease)}
+.vcard-tall .vcard-thumb{aspect-ratio:9/16}
+.vcard:hover .vcard-thumb{transform:scale(1.03)}
+.tt-thumb{aspect-ratio:9/16;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(160deg,#0a0010,#050008)}
+.tt-thumb svg{opacity:.4}
+.tt-thumb span{font-size:10px;color:var(--t3);font-weight:600;letter-spacing:.08em;font-family:'Space Grotesk',sans-serif}
+.vcard-overlay{position:absolute;inset:0;background:rgba(6,6,8,.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s}
+.vcard:hover .vcard-overlay{opacity:1}
+.play-btn{width:44px;height:44px;border-radius:50%;background:rgba(168,85,247,.8);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transform:scale(.75);transition:transform .28s var(--ease)}
+.vcard:hover .play-btn{transform:scale(1)}
+.play-btn::after{content:'';border-left:14px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.vcard-meta{padding:10px 12px 12px}
+.badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-bottom:4px;font-family:'Space Grotesk',sans-serif}
+.b-fivem{background:rgba(56,189,248,.1);color:#7DD3FC;border:1px solid rgba(56,189,248,.2)}
+.b-minecraft{background:rgba(168,85,247,.1);color:#C084FC;border:1px solid rgba(168,85,247,.2)}
+.b-short{background:rgba(236,72,153,.1);color:#F9A8D4;border:1px solid rgba(236,72,153,.2)}
+.b-long{background:rgba(129,140,248,.1);color:#A5B4FC;border:1px solid rgba(129,140,248,.2)}
+.b-gmod{background:rgba(251,146,60,.1);color:#FED7AA;border:1px solid rgba(251,146,60,.2)}
+.vcard-title{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;color:var(--t1);line-height:1.3}
+.port-more{max-width:1160px;margin:28px auto 0;text-align:center;font-size:13px;color:var(--t3)}
+.port-more a{color:var(--c3);text-decoration:none;font-weight:600;transition:color .2s}
+.port-more a:hover{color:var(--c4)}
 
 /* PRICING */
-#pricing{background:var(--bg2);}
-.pricing-wrap{max-width:1100px;margin:64px auto 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
-@media(max-width:900px){.pricing-wrap{grid-template-columns:1fr 1fr;}}
-@media(max-width:580px){.pricing-wrap{grid-template-columns:1fr;}}
-.pcard{background:var(--bg3);border:1px solid var(--line);border-radius:var(--r2);padding:36px 32px;position:relative;overflow:hidden;transition:transform .4s var(--ease),border-color .3s,box-shadow .4s;display:flex;flex-direction:column;}
-.pcard:hover{transform:translateY(-6px);border-color:var(--line2);box-shadow:0 30px 70px rgba(0,0,0,.4);}
-.pcard.feat-p{border-color:rgba(232,100,42,.35);background:linear-gradient(145deg,rgba(232,100,42,.05) 0%,rgba(196,79,196,.04) 100%);}
-.pcard.feat-p::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grd);}
-.pcard-badge{position:absolute;top:20px;right:20px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--grd);color:#fff;padding:4px 12px;border-radius:50px;}
-.pcard-name{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:24px;}
-.pcard-price{font-family:var(--serif);font-size:64px;letter-spacing:-3px;line-height:1;margin-bottom:4px;background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.pcard-unit{font-size:13px;color:var(--t3);font-weight:400;margin-bottom:28px;}
-.pcard-per{font-size:12px;color:var(--acc);font-weight:600;margin-bottom:28px;}
-.pcard-sep{height:1px;background:var(--line);margin-bottom:24px;}
-.pcard-list{list-style:none;display:flex;flex-direction:column;gap:12px;flex:1;margin-bottom:32px;}
-.pcard-list li{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:400;color:var(--t2);}
-.pcard-list li::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0;background:var(--grd);}
+#pricing{background:var(--s1)}
+.pricing-inner{max-width:1060px;margin:0 auto}
+.pricing-top{text-align:center;margin-bottom:48px}
 
-/* PROCESS */
-#process{background:var(--bg);}
-.process-wrap{max-width:1100px;margin:0 auto;}
-.process-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:80px;}
-.process-steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
-.pstep{background:var(--bg3);padding:40px 36px;position:relative;overflow:hidden;transition:background .3s;}
-.pstep:nth-child(1){border-radius:var(--r) 0 0 0;}.pstep:nth-child(2){border-radius:0 var(--r) 0 0;}.pstep:nth-child(3){border-radius:0 0 0 var(--r);}.pstep:nth-child(4){border-radius:0 0 var(--r) 0;}
-.pstep:hover{background:var(--bg4);}
-.pstep-n{font-family:var(--serif);font-size:56px;letter-spacing:-2px;line-height:1;background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:24px;display:block;}
-.pstep-title{font-weight:600;font-size:18px;margin-bottom:10px;}
-.pstep-desc{font-size:14px;color:var(--t2);line-height:1.7;font-weight:300;}
+/* ── CRO: urgency slot dans pricing ── */
+.pricing-urgency{display:inline-flex;align-items:center;gap:8px;background:rgba(236,72,153,.08);border:1px solid rgba(236,72,153,.2);border-radius:50px;padding:6px 16px;font-size:11px;font-weight:700;color:#F9A8D4;font-family:'Space Grotesk',sans-serif;letter-spacing:.04em;margin-bottom:20px}
+.pricing-urgency .dot-pulse{width:6px;height:6px;border-radius:50%;background:var(--c4);animation:dp 1.8s ease infinite;flex-shrink:0}
+
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+@media(max-width:760px){.pricing-grid{grid-template-columns:1fr}}
+.pcard{background:var(--s2);padding:36px 28px;display:flex;flex-direction:column;position:relative;transition:background .25s}
+.pcard:hover{background:var(--s3)}
+.pcard.hot{background:var(--s3)}
+.pcard.hot::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grd)}
+.pcard-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:24px;font-family:'Space Grotesk',sans-serif}
+.pcard-hot-badge{position:absolute;top:18px;right:18px;background:var(--grd);color:#fff;font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:3px;font-family:'Space Grotesk',sans-serif}
+.pcard-price{font-family:'Space Grotesk',sans-serif;font-size:52px;font-weight:700;letter-spacing:-3px;line-height:1;background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:3px}
+.pcard-unit{font-size:12px;color:var(--t3);margin-bottom:3px}
+.pcard-per{font-size:11px;color:var(--c3);font-weight:600;margin-bottom:24px}
+.pcard-line{height:1px;background:var(--line);margin-bottom:20px}
+.pcard-list{list-style:none;display:flex;flex-direction:column;gap:9px;flex:1;margin-bottom:24px}
+.pcard-list li{font-size:13px;color:var(--t2);display:flex;align-items:center;gap:8px}
+.pcard-list li::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--grd);flex-shrink:0}
+/* ── CRO: guarantee sous bouton pricing ── */
+.pcard-guarantee{font-size:11px;color:var(--t3);text-align:center;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:5px}
+.pcard-guarantee svg{opacity:.5;flex-shrink:0}
 
 /* TRUST */
-#trust{background:var(--bg2);}
-.trust-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.trust-left .s-sub{margin-top:20px;}
-.trust-metrics{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:48px;}
-.tm{background:var(--bg3);padding:28px 24px;transition:background .3s;}
-.tm:first-child{border-radius:var(--r) 0 0 0;}.tm:nth-child(2){border-radius:0 var(--r) 0 0;}.tm:nth-child(3){border-radius:0 0 0 var(--r);}.tm:last-child{border-radius:0 0 var(--r) 0;}
-.tm:hover{background:var(--bg4);}
-.tm-n{font-family:var(--serif);font-size:40px;letter-spacing:-2px;line-height:1;background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:4px;}
-.tm-l{font-size:12px;color:var(--t3);font-weight:500;text-transform:uppercase;letter-spacing:.06em;}
-.avatars-block{display:flex;flex-wrap:wrap;gap:12px;}
-.av{display:flex;flex-direction:column;align-items:center;gap:6px;}
-.av-circle{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:#fff;border:1.5px solid rgba(255,255,255,.08);transition:transform .3s var(--ease),box-shadow .3s;}
-.av-circle:hover{transform:translateY(-4px) scale(1.06);box-shadow:0 10px 24px rgba(0,0,0,.4);}
-.av1{background:linear-gradient(135deg,#E8642A,#C44FC4)}.av2{background:linear-gradient(135deg,#2A7AE8,#C44FC4)}.av3{background:linear-gradient(135deg,#C44FC4,#E8642A)}.av4{background:linear-gradient(135deg,#0EA47A,#2A7AE8)}.av5{background:linear-gradient(135deg,#E8A62A,#E8642A)}.av6{background:linear-gradient(135deg,#E83A3A,#C44FC4)}.av7{background:linear-gradient(135deg,#2AC4E8,#2A7AE8)}.av8{background:linear-gradient(135deg,#8B5CF6,#C44FC4)}
-.av-name{font-size:11px;color:var(--t3);font-weight:500;}
-.more-clients{margin-top:28px;padding:16px 20px;background:var(--bg3);border:1px solid var(--line);border-radius:var(--r);font-size:13px;color:var(--t2);font-weight:300;}
-.more-clients strong{color:var(--t1);font-weight:600;}
+#trust{background:var(--bg)}
+.trust-layout{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:860px){.trust-layout{grid-template-columns:1fr;gap:40px}}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:36px}
+.metric{background:var(--s2);padding:22px 20px;transition:background .25s}
+.metric:hover{background:var(--s3)}
+.metric-n{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;letter-spacing:-1.5px;background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:1;margin-bottom:3px}
+.metric-l{font-size:10px;color:var(--t3);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-family:'Space Grotesk',sans-serif}
+.clients-grid{display:flex;flex-wrap:wrap;gap:7px}
+.client-chip{display:flex;align-items:center;gap:7px;background:var(--s2);border:1px solid var(--line2);border-radius:6px;padding:7px 12px;transition:border-color .2s,background .2s}
+.client-chip:hover{border-color:var(--line3);background:var(--s3)}
+.chip-av{width:24px;height:24px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:9px;font-weight:700;color:#fff;flex-shrink:0}
+.chip-name{font-size:11px;font-weight:600;color:var(--t2);font-family:'Space Grotesk',sans-serif}
+.av1{background:linear-gradient(135deg,var(--c1),var(--c2))}.av2{background:linear-gradient(135deg,var(--c2),var(--c3))}.av3{background:linear-gradient(135deg,var(--c3),var(--c4))}.av4{background:linear-gradient(135deg,var(--c1),var(--c3))}.av5{background:linear-gradient(135deg,var(--c2),var(--c4))}.av6{background:linear-gradient(135deg,var(--c4),var(--c3))}.av7{background:linear-gradient(135deg,var(--c1),var(--c4))}.av8{background:linear-gradient(135deg,var(--c3),var(--c1))}
+.trust-note{margin-top:12px;padding:12px 14px;background:var(--s2);border:1px solid var(--line);border-radius:8px;font-size:13px;color:var(--t2)}
+.trust-note strong{color:var(--t1)}
 
-/* CTA FINAL */
-#cta-final{background:var(--bg);padding:140px 5%;text-align:center;}
-.cta-box{max-width:720px;margin:0 auto;background:var(--bg3);border:1px solid var(--line2);border-radius:32px;padding:88px 64px;position:relative;overflow:hidden;}
-.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grd);}
-.cta-box::after{content:'';position:absolute;width:500px;height:300px;background:radial-gradient(ellipse,rgba(196,79,196,.08) 0%,transparent 70%);top:0;left:50%;transform:translateX(-50%);pointer-events:none;}
-.cta-box .s-label{margin-bottom:16px;}
-.cta-title{font-family:var(--serif);font-size:clamp(36px,5vw,60px);letter-spacing:-1.5px;line-height:1.08;margin-bottom:20px;}
-.cta-title em{font-style:italic;color:var(--t2);}
-.cta-sub{font-size:16px;color:var(--t2);font-weight:300;margin-bottom:44px;line-height:1.7;}
-.cta-fine{margin-top:20px;font-size:12px;color:var(--t3);font-weight:400;letter-spacing:.04em;}
+/* TESTIMONIALS */
+#testimonials{background:var(--s1)}
+.testi-inner{max-width:1160px;margin:0 auto}
+.testi-track{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto;gap:12px;margin-top:48px;align-items:start}
+@media(max-width:860px){.testi-track{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.testi-track{grid-template-columns:1fr}}
+/* on mobile, disable row span */
+@media(max-width:860px){.tcard.featured{grid-row:span 1 !important}}
+.tcard{background:var(--s2);border:1px solid var(--line2);border-radius:10px;padding:22px 20px;display:flex;flex-direction:column;gap:12px;transition:border-color .25s,background .25s,transform .3s var(--ease)}
+.tcard:hover{border-color:var(--line3);background:var(--s3);transform:translateY(-3px)}
+.tcard.featured{border-color:rgba(168,85,247,.2);background:linear-gradient(145deg,rgba(168,85,247,.04),var(--s2));position:relative;overflow:hidden}
+.tcard.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grd)}
+.tcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.tcard-name{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:var(--t1);margin-bottom:2px}
+.tcard-type{font-size:11px;color:var(--t3);font-weight:500}
+.stars{font-size:13px;white-space:nowrap}
+.tcard-text{font-size:13px;color:var(--t2);line-height:1.7;flex:1}
+.tcard-date{font-size:10px;color:var(--t4);font-weight:500}
 
-/* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;font-size:14px;padding:14px 30px;border-radius:50px;text-decoration:none;border:none;cursor:none;white-space:nowrap;letter-spacing:-.1px;transition:transform .25s var(--ease),box-shadow .25s,opacity .2s;}
-.btn-fill{background:var(--t1);color:var(--bg);}
-.btn-fill:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 12px 32px rgba(242,240,236,.12);}
-.btn-ghost{background:transparent;color:var(--t1);border:1px solid var(--line2);}
-.btn-ghost:hover{background:rgba(255,255,255,.05);transform:translateY(-2px);}
-.btn-grad{background:var(--grd);color:#fff;background-size:200% auto;animation:gradShift 6s linear infinite;box-shadow:0 0 0 0 rgba(232,100,42,0);}
-.btn-grad:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 40px rgba(232,100,42,.3);}
-.btn-order{background:var(--grd);color:#fff;background-size:200% auto;animation:gradShift 6s linear infinite;font-family:var(--sans);font-weight:600;font-size:14px;padding:14px 30px;border-radius:50px;text-decoration:none;border:none;cursor:none;white-space:nowrap;display:inline-flex;align-items:center;gap:10px;transition:transform .25s var(--ease),box-shadow .25s;}
-.btn-order:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 40px rgba(232,100,42,.3);}
-.discord-icon{width:18px;height:18px;}
+/* STEPS */
+#steps{background:var(--bg)}
+.steps-layout{max-width:1160px;margin:0 auto}
+.steps-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:48px}
+@media(max-width:760px){.steps-header{grid-template-columns:1fr;gap:16px;margin-bottom:36px}}
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+@media(max-width:600px){.steps-grid{grid-template-columns:1fr}}
+.step{background:var(--s2);padding:36px 30px;transition:background .25s}
+.step:hover{background:var(--s3)}
+.step-num{font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;letter-spacing:-2px;background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:1;margin-bottom:16px;opacity:.65}
+.step-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;margin-bottom:7px}
+.step-desc{font-size:13px;color:var(--t2);line-height:1.7}
 
-/* STICKY CTA */
-.sticky-cta{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);z-index:600;background:rgba(13,15,15,.9);backdrop-filter:blur(20px);border:1px solid var(--line2);border-radius:50px;padding:8px 8px 8px 24px;display:flex;align-items:center;gap:16px;box-shadow:0 8px 40px rgba(0,0,0,.5);animation:fadeUp .7s var(--ease) .8s both;}
-.sticky-cta span{font-size:13px;color:var(--t2);white-space:nowrap;font-weight:400;}
+/* FAQ */
+#faq{background:var(--s1)}
+.faq-layout{max-width:760px;margin:0 auto}
+.faq-list{margin-top:44px;display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.faq-item{background:var(--s2)}
+.faq-q{width:100%;background:none;border:none;color:var(--t1);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;padding:20px 24px;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:background .2s;line-height:1.4}
+.faq-q:hover{background:var(--s3)}
+.faq-q.open{background:var(--s3)}
+.faq-icon{width:20px;height:20px;border-radius:50%;border:1px solid var(--line3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:var(--t3);transition:transform .3s var(--ease),border-color .2s;font-style:normal}
+.faq-q.open .faq-icon{transform:rotate(45deg);border-color:var(--c3);color:var(--c3)}
+.faq-a{font-size:13.5px;color:var(--t2);line-height:1.75;padding:0 24px 20px;display:none}
+.faq-a.open{display:block}
+.faq-a strong{color:var(--t1)}
+
+/* CTA */
+#cta-section{background:var(--bg);padding:100px 5%}
+.cta-inner{max-width:600px;margin:0 auto;text-align:center}
+.cta-h{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,5vw,58px);font-weight:700;letter-spacing:clamp(-1.5px,-0.04em,-3px);line-height:1;margin-bottom:14px}
+.cta-h .g{background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-sub{font-size:14px;color:var(--t2);line-height:1.75;margin-bottom:32px}
+.cta-fine{margin-top:14px;font-size:11px;color:var(--t4);letter-spacing:.04em}
 
 /* FOOTER */
-footer{background:var(--bg2);border-top:1px solid var(--line);padding:36px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
-.footer-logo{font-weight:700;font-size:16px;letter-spacing:-.2px;color:var(--t1);}
-.footer-copy{font-size:13px;color:var(--t3);}
-.footer-links{display:flex;gap:28px;}
-.footer-links a{font-size:13px;color:var(--t3);text-decoration:none;transition:color .2s;}
-.footer-links a:hover{color:var(--t1);}
+footer{background:var(--s1);border-top:1px solid var(--line);padding:24px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.foot-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:var(--t1)}
+.foot-copy{font-size:12px;color:var(--t4)}
+.foot-links{display:flex;gap:20px}
+.foot-links a{font-size:12px;color:var(--t3);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--t1)}
 
-/* ═══════════════════════════════════
-   MODAL COMMANDE
-═══════════════════════════════════ */
-.modal-overlay{
-  position:fixed;inset:0;z-index:2000;
-  background:rgba(6,7,7,.85);backdrop-filter:blur(16px);
-  display:flex;align-items:center;justify-content:center;padding:20px;
-  opacity:0;pointer-events:none;transition:opacity .35s var(--ease);
-}
-.modal-overlay.open{opacity:1;pointer-events:all;}
-.modal{
-  background:var(--bg3);border:1px solid var(--line2);border-radius:28px;
-  padding:48px 44px;width:100%;max-width:560px;position:relative;
-  transform:translateY(24px) scale(.97);
-  transition:transform .4s var(--ease);
-  max-height:90svh;overflow-y:auto;
-}
-.modal-overlay.open .modal{transform:none;}
-.modal::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grd);border-radius:28px 28px 0 0;}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;padding:13px 24px;border-radius:6px;text-decoration:none;border:none;letter-spacing:-.1px;white-space:nowrap;transition:transform .22s var(--ease),box-shadow .22s,opacity .2s}
+.btn-primary{background:var(--grd);color:#fff;background-size:200% auto;animation:gm 6s linear infinite}
+.btn-primary:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 12px 28px rgba(168,85,247,.3)}
+.btn-outline{background:transparent;color:var(--t1);border:1px solid var(--line3)}
+.btn-outline:hover{background:rgba(255,255,255,.05);transform:translateY(-2px)}
+.dc-icon{width:15px;height:15px;flex-shrink:0}
 
-.modal-close{
-  position:absolute;top:20px;right:20px;width:34px;height:34px;
-  background:var(--bg4);border:1px solid var(--line);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;cursor:none;
-  font-size:18px;color:var(--t2);transition:background .2s,color .2s;
-  line-height:1;
-}
-.modal-close:hover{background:var(--line);color:var(--t1);}
+/* STICKY — mobile friendly */
+.sticky-bar{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:600;background:rgba(10,10,15,.92);backdrop-filter:blur(28px);border:1px solid var(--line2);border-radius:50px;padding:6px 6px 6px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 6px 32px rgba(0,0,0,.5);animation:fu .8s var(--ease) 1s both;max-width:calc(100vw - 32px)}
+.sticky-bar-text{font-size:12px;color:var(--t2);white-space:nowrap;font-family:'Space Grotesk',sans-serif;font-weight:500}
+@media(max-width:380px){.sticky-bar-text{display:none}}
 
-.modal-title{font-family:var(--serif);font-size:32px;letter-spacing:-1px;margin-bottom:8px;}
-.modal-sub{font-size:14px;color:var(--t2);font-weight:300;margin-bottom:36px;line-height:1.6;}
-
-/* Pack selector inside modal */
-.pack-selected-info{
-  background:var(--bg4);border:1px solid var(--line2);border-radius:var(--r);
-  padding:14px 18px;margin-bottom:28px;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-}
-.pack-selected-info span{font-size:13px;color:var(--t2);}
-.pack-selected-info strong{font-size:15px;color:var(--t1);font-weight:600;}
-
-/* Form */
-.form-group{margin-bottom:20px;}
-.form-label{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;}
-.form-input,.form-select,.form-textarea{
-  width:100%;background:var(--bg4);border:1px solid var(--line2);
-  border-radius:var(--r);padding:13px 16px;
-  font-family:var(--sans);font-size:15px;color:var(--t1);
-  transition:border-color .2s,box-shadow .2s;outline:none;
-  -webkit-appearance:none;
-}
-.form-input::placeholder,.form-textarea::placeholder{color:var(--t3);}
-.form-input:focus,.form-select:focus,.form-textarea:focus{
-  border-color:rgba(232,100,42,.5);
-  box-shadow:0 0 0 3px rgba(232,100,42,.1);
-}
-.form-select{
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(242,240,236,0.3)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 14px center;
-  padding-right:40px;cursor:none;
-}
-.form-select option{background:var(--bg3);color:var(--t1);}
-.form-textarea{resize:vertical;min-height:120px;line-height:1.6;}
-
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-
-.form-submit{
-  width:100%;padding:16px;border-radius:50px;
-  background:var(--grd);background-size:200% auto;animation:gradShift 6s linear infinite;
-  color:#fff;font-family:var(--sans);font-weight:700;font-size:15px;
-  border:none;cursor:none;
-  transition:transform .25s var(--ease),box-shadow .25s,opacity .2s;
-  margin-top:8px;letter-spacing:-.1px;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-}
-.form-submit:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(232,100,42,.3);}
-.form-submit:disabled{opacity:.5;transform:none;box-shadow:none;}
-
-/* Success state */
-.modal-success{
-  text-align:center;padding:20px 0;
-  display:none;flex-direction:column;align-items:center;gap:16px;
-}
-.modal-success.show{display:flex;}
-.success-icon{
-  width:72px;height:72px;border-radius:50%;
-  background:var(--grd);
-  display:flex;align-items:center;justify-content:center;
-  font-size:32px;
-  box-shadow:0 0 40px rgba(232,100,42,.3);
-  animation:popIn .5s var(--ease) both;
-}
-@keyframes popIn{from{transform:scale(0)}to{transform:scale(1)}}
-.success-title{font-family:var(--serif);font-size:28px;letter-spacing:-1px;}
-.success-desc{font-size:14px;color:var(--t2);font-weight:300;line-height:1.6;max-width:340px;}
-.success-discord{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(88,101,242,.2);border:1px solid rgba(88,101,242,.35);
-  color:#A5B4FC;border-radius:50px;padding:10px 20px;
-  font-size:13px;font-weight:600;text-decoration:none;
-  transition:background .2s;margin-top:4px;cursor:none;
-}
-.success-discord:hover{background:rgba(88,101,242,.3);}
-
-/* Error */
-.form-error{font-size:12px;color:#FF6B6B;margin-top:6px;display:none;}
-.form-error.show{display:block;}
-
-/* Spinner */
-.spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:800;background:rgba(6,6,8,.82);backdrop-filter:blur(20px);display:flex;align-items:flex-end;justify-content:center;padding:0;opacity:0;pointer-events:none;transition:opacity .3s}
+@media(min-width:600px){.modal-overlay{align-items:center;padding:20px}}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:var(--s2);border:1px solid var(--line2);border-radius:16px 16px 0 0;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;position:relative;transform:translateY(40px);opacity:0;transition:transform .35s var(--ease),opacity .3s}
+@media(min-width:600px){.modal-box{border-radius:16px;transform:translateY(20px) scale(.97)}}
+.modal-overlay.open .modal-box{transform:none;opacity:1}
+.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:var(--grd);border-radius:16px 16px 0 0}
+.modal-inner{padding:40px 36px 36px}
+@media(max-width:480px){.modal-inner{padding:28px 18px 24px}}
+.modal-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:6px;background:var(--s3);border:1px solid var(--line2);color:var(--t3);font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
+.modal-close:hover{background:var(--s4);color:var(--t1)}
+.modal-title{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.6px;margin-bottom:4px}
+.modal-sub{font-size:13px;color:var(--t2);margin-bottom:28px}
+.f-pack-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:9px;display:block;font-family:'Space Grotesk',sans-serif}
+.pack-opts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-bottom:5px}
+@media(max-width:360px){.pack-opts{grid-template-columns:1fr 1fr}}
+.pack-opt{border:1px solid var(--line2);border-radius:8px;padding:11px 9px;text-align:center;background:var(--s3);transition:all .2s}
+.pack-opt:hover{border-color:var(--line3);background:var(--s4)}
+.pack-opt.selected{border-color:var(--c3);background:rgba(168,85,247,.1)}
+.pack-price{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.8px;background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:1px}
+.pack-name{font-size:10px;color:var(--t2);font-weight:500;display:block}
+.pack-per{font-size:9px;color:var(--c3);font-weight:600;display:block;margin-top:2px}
+.f-sec{margin-bottom:16px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:380px){.f-row{grid-template-columns:1fr}}
+.f-label{display:block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);margin-bottom:6px;font-family:'Space Grotesk',sans-serif}
+.f-input,.f-select,.f-textarea{width:100%;background:var(--s3);border:1px solid var(--line2);border-radius:7px;padding:11px 13px;font-family:'Inter',sans-serif;font-size:14px;color:var(--t1);outline:none;transition:border-color .2s,background .2s;-webkit-appearance:none}
+.f-input::placeholder,.f-textarea::placeholder{color:var(--t4)}
+.f-input:focus,.f-select:focus,.f-textarea:focus{border-color:rgba(168,85,247,.5);background:var(--s4)}
+.f-select{appearance:none}
+.f-textarea{min-height:90px;resize:vertical}
+.f-select option{background:var(--s3)}
+.f-opt-label{font-size:10px;color:var(--t4);margin-left:4px;font-weight:400;text-transform:none;letter-spacing:0}
+.f-error{font-size:11px;color:#F87171;margin-top:4px;display:none}
+.f-error.show{display:block}
+/* ── CRO: guarantee inside form ── */
+.f-guarantee{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--t3);margin-bottom:14px;padding:10px 14px;background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.12);border-radius:7px}
+.f-submit{width:100%;padding:15px;border-radius:7px;background:var(--grd);color:#fff;background-size:200% auto;animation:gm 6s linear infinite;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;border:none;display:flex;align-items:center;justify-content:center;gap:9px;transition:transform .22s var(--ease),box-shadow .22s,opacity .2s}
+.f-submit:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 28px rgba(168,85,247,.3)}
+.f-submit:disabled{opacity:.6}
+.spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+.form-api-error{display:none;margin-top:10px;padding:11px 13px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);border-radius:7px;font-size:12px;color:#FCA5A5}
+.form-api-error.show{display:block}
+.modal-success{display:none;text-align:center;padding:44px 36px}
+.modal-success.show{display:block}
+.success-check{width:52px;height:52px;border-radius:50%;background:rgba(168,85,247,.15);border:1px solid rgba(168,85,247,.3);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px}
+.success-title{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.5px;margin-bottom:8px}
+.success-desc{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:22px}
+.success-dc{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:6px;background:rgba(88,101,242,.15);border:1px solid rgba(88,101,242,.3);color:#A5B4FC;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;transition:background .2s}
+.success-dc:hover{background:rgba(88,101,242,.25)}
 
-/* Pack cards in modal */
-.pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px;}
-.pack-opt{
-  border:1px solid var(--line2);border-radius:var(--r);padding:16px 14px;text-align:center;
-  cursor:none;transition:all .2s;background:var(--bg4);
+/* ════════════════════════════════
+   MOBILE — 480px and below
+════════════════════════════════ */
+@media(max-width:480px){
+  /* Hero */
+  #hero{padding:90px 5% 60px;align-items:flex-start}
+  .hero-h1{font-size:clamp(36px,10vw,48px);letter-spacing:-2px}
+  .hero-sub{font-size:14px}
+  .hero-btns{flex-direction:column;width:100%}
+  .hero-btns .btn{width:100%;justify-content:center}
+  .hero-proof{gap:8px}
+  .hero-stats{flex-direction:column;width:100%;max-width:280px}
+  .hstat{border-radius:0 !important;border:1px solid var(--line2) !important;padding:11px 18px;display:flex;flex-direction:row;align-items:center;justify-content:space-between}
+  .hstat+.hstat{border-top:none !important;border-left:1px solid var(--line2) !important}
+  .hstat-n{font-size:22px}
+  /* Sections */
+  section{padding:52px 5%}
+  /* Services */
+  .services-layout{gap:36px}
+  .serv-cards{grid-template-columns:1fr}
+  /* Portfolio */
+  .port-header{flex-direction:column;align-items:flex-start;gap:16px}
+  .pgrid{columns:1}
+  /* Pricing */
+  .pricing-grid{grid-template-columns:1fr}
+  /* Trust */
+  .trust-layout{gap:36px}
+  .metrics{grid-template-columns:1fr 1fr}
+  /* Testimonials */
+  .testi-track{grid-template-columns:1fr}
+  .tcard.featured{grid-row:span 1 !important}
+  /* Steps */
+  .steps-header{grid-template-columns:1fr;gap:12px;margin-bottom:28px}
+  .steps-grid{grid-template-columns:1fr}
+  .step{padding:28px 22px}
+  /* FAQ */
+  .faq-q{font-size:13px;padding:16px 18px}
+  .faq-a{padding:0 18px 16px;font-size:13px}
+  /* Footer */
+  footer{flex-direction:column;text-align:center;gap:10px}
+  .foot-links{justify-content:center}
+  /* Sticky */
+  .sticky-bar{bottom:12px;padding:6px 6px 6px 14px}
+  /* Modal */
+  .modal-inner{padding:24px 16px 20px}
+  .pack-opts{grid-template-columns:1fr 1fr 1fr}
+  .f-row{grid-template-columns:1fr}
 }
-.pack-opt:hover{border-color:rgba(232,100,42,.4);background:rgba(232,100,42,.05);}
-.pack-opt.selected{border-color:var(--acc);background:rgba(232,100,42,.1);box-shadow:0 0 0 1px var(--acc);}
-.pack-opt-price{font-family:var(--serif);font-size:26px;letter-spacing:-1px;background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;}
-.pack-opt-name{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);}
-.pack-opt-per{font-size:10px;color:var(--acc);font-weight:600;margin-top:2px;}
-.pack-opt-badge{background:var(--grd);color:#fff;font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 8px;border-radius:50px;margin-bottom:6px;display:inline-block;}
 
-/* Mobile */
-@media(max-width:768px){
-  nav .nav-links{display:none;}
-  .about-wrap{grid-template-columns:1fr;gap:48px;}
-  .about-left p{max-width:100%;}
-  .feature-grid{grid-template-columns:1fr;}
-  .feat{border-radius:0!important;}
-  .feat:first-child{border-radius:var(--r) var(--r) 0 0!important;}
-  .feat:last-child{border-radius:0 0 var(--r) var(--r)!important;}
-  .pricing-wrap{grid-template-columns:1fr;}
-  .trust-wrap{grid-template-columns:1fr;}
-  .cta-box{padding:52px 28px;}
-  .hero-stats{flex-direction:column;align-items:center;}
-  .hstat+.hstat::before{display:none;}
-  .sticky-cta span{display:none;}
-  footer{flex-direction:column;text-align:center;}
-  .modal{padding:36px 24px;}
-  .form-row{grid-template-columns:1fr;}
-  .pack-grid{grid-template-columns:1fr;}
-  .process-header{grid-template-columns:1fr;gap:24px;}
-  .process-steps-grid{grid-template-columns:1fr;}
+/* ════════════════════════════════
+   TABLET — 481px–860px  
+════════════════════════════════ */
+@media(min-width:481px) and (max-width:860px){
+  .hero-h1{font-size:clamp(44px,8vw,72px)}
+  .services-layout{grid-template-columns:1fr;gap:40px}
+  .trust-layout{grid-template-columns:1fr;gap:40px}
+  .steps-header{grid-template-columns:1fr;gap:14px;margin-bottom:32px}
+  .pricing-grid{grid-template-columns:1fr}
+  .testi-track{grid-template-columns:1fr 1fr}
+  .tcard.featured{grid-row:span 1 !important}
+  .pgrid{columns:2}
+  footer{flex-wrap:wrap;gap:12px}
+}
+
+/* ── LIVE CARD ── */
+.live-card{background:linear-gradient(135deg,rgba(168,85,247,.08),rgba(236,72,153,.06),rgba(56,189,248,.04));border:1px solid rgba(168,85,247,.25);border-radius:14px;padding:28px 28px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:28px;position:relative;overflow:hidden;flex-wrap:wrap}
+.live-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--grd)}
+.live-card::after{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(168,85,247,.08),transparent 70%);pointer-events:none}
+.live-card-left{flex:1;min-width:220px}
+.live-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.25);border-radius:50px;padding:4px 12px;font-size:9px;font-weight:800;letter-spacing:.12em;color:var(--c4);font-family:'Space Grotesk',sans-serif;margin-bottom:12px}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--c4);animation:ldp 1.5s ease infinite;flex-shrink:0}
+@keyframes ldp{0%,100%{box-shadow:0 0 0 0 rgba(236,72,153,.7)}50%{box-shadow:0 0 0 5px rgba(236,72,153,0)}}
+.live-title{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;letter-spacing:-.4px;margin-bottom:8px;color:var(--t1)}
+.live-desc{font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:14px;max-width:420px}
+.live-desc strong{color:var(--t1)}
+.live-features{display:flex;flex-wrap:wrap;gap:6px}
+.live-feat{display:inline-flex;align-items:center;padding:4px 10px;background:rgba(255,255,255,.04);border:1px solid var(--line2);border-radius:50px;font-size:11px;font-weight:600;color:var(--t2);font-family:'Space Grotesk',sans-serif}
+.live-card-right{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;text-align:center}
+.live-price{font-family:'Space Grotesk',sans-serif;font-size:48px;font-weight:700;letter-spacing:-2.5px;background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.live-unit{font-size:15px;letter-spacing:0;font-weight:500}
+.live-pmin{font-size:10px;color:var(--t3);max-width:140px;line-height:1.4;font-family:'Space Grotesk',sans-serif;text-align:center}
+@media(max-width:600px){
+  .live-card{flex-direction:column;gap:18px;padding:20px 16px}
+  .live-card-right{width:100%;flex-direction:row;justify-content:space-between;align-items:center;gap:12px}
+  .live-price{font-size:38px}
+  .live-card-right .btn{flex:1;justify-content:center}
 }
 </style>
 </head>
 <body>
-
-<!-- CURSOR -->
 <div id="cur"></div>
-<div id="cur-r"></div>
+<div id="cur-ring"></div>
 
-<!-- ═══ MODAL COMMANDE ═══ -->
-<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
-  <div class="modal">
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeOuter(event)">
+  <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">✕</button>
-
-    <!-- Formulaire -->
-    <div id="modal-form-wrap">
-      <div class="modal-title">Commander une vidéo</div>
-      <div class="modal-sub">Remplis ce formulaire — on te répond sur Discord sous 24h.</div>
-
-      <!-- Pack selector -->
-      <div class="form-group">
-        <div class="form-label">Choisis ton pack</div>
-        <div class="pack-grid">
-          <div class="pack-opt" onclick="selectPack(this,'Starter — 1 vidéo — 13€')" data-pack="Starter — 1 vidéo — 13€">
-            <div class="pack-opt-price">13€</div>
-            <div class="pack-opt-name">Starter</div>
-            <div class="pack-opt-per">1 vidéo</div>
+    <div id="modal-form">
+      <div class="modal-inner">
+        <div class="modal-title">Commander une vidéo</div>
+        <div class="modal-sub">Remplis le formulaire — on te répond sous 24h.</div>
+        <div class="f-sec">
+          <span class="f-pack-label">Choisis ton pack</span>
+          <div class="pack-opts">
+            <div class="pack-opt" data-pack="Pack 1 vidéo — 15€" onclick="selectPack(this,'Pack 1 vidéo — 15€')"><span class="pack-price">15€</span><span class="pack-name">Pack 1</span><span class="pack-per">15€/vidéo</span></div>
+            <div class="pack-opt" data-pack="Pack 5 vidéos — 60€" onclick="selectPack(this,'Pack 5 vidéos — 60€')"><span class="pack-price">60€</span><span class="pack-name">Pack 5</span><span class="pack-per">12€/vidéo</span></div>
+            <div class="pack-opt" data-pack="Pack 10 vidéos — 110€" onclick="selectPack(this,'Pack 10 vidéos — 110€')"><span class="pack-price">110€</span><span class="pack-name">Pack 10</span><span class="pack-per">11€/vidéo</span></div>
           </div>
-          <div class="pack-opt" onclick="selectPack(this,'Pack 5 vidéos — 60€')" data-pack="Pack 5 vidéos — 60€">
-            <div class="pack-opt-price">60€</div>
-            <div class="pack-opt-name">Pack 5</div>
-            <div class="pack-opt-per">= 12€/vidéo</div>
-          </div>
-          <div class="pack-opt" onclick="selectPack(this,'Pack 10 vidéos — 110€')" data-pack="Pack 10 vidéos — 110€">
-            <div class="pack-opt-badge">⭐ Best</div>
-            <div class="pack-opt-price">110€</div>
-            <div class="pack-opt-name">Pack 10</div>
-            <div class="pack-opt-per">= 11€/vidéo</div>
+          <div class="f-error" id="err-pack">Sélectionne un pack.</div>
+        </div>
+        <div class="f-sec">
+          <div class="f-row">
+            <div><label class="f-label">Prénom / Pseudo</label><input class="f-input" id="f-name" type="text" placeholder="Kairoomc" maxlength="50" autocomplete="given-name"><div class="f-error" id="err-name">Champ requis.</div></div>
+            <div><label class="f-label">Tag Discord</label><input class="f-input" id="f-discord" type="text" placeholder="kairoomc" maxlength="50"><div class="f-error" id="err-discord">Champ requis.</div></div>
           </div>
         </div>
-        <div class="form-error" id="err-pack">Sélectionne un pack pour continuer.</div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Ton prénom / pseudo</label>
-          <input class="form-input" id="f-name" type="text" placeholder="Ex: Kairoomc" maxlength="50">
-          <div class="form-error" id="err-name">Ce champ est requis.</div>
+        <div class="f-sec">
+          <label class="f-label">Type de vidéo</label>
+          <select class="f-select" id="f-type">
+            <option value="">— Sélectionne —</option>
+            <option>Trailer FiveM</option><option>Trailer Minecraft</option>
+            <option>Format court (TikTok / Short / Reel)</option>
+            <option>Format long</option><option>Autre</option>
+          </select>
+          <div class="f-error" id="err-type">Sélectionne un type.</div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Tag Discord</label>
-          <input class="form-input" id="f-discord" type="text" placeholder="Ex: kairoomc" maxlength="50">
-          <div class="form-error" id="err-discord">Ce champ est requis.</div>
+        <div class="f-sec">
+          <label class="f-label">Décris ton projet <span class="f-opt-label">(optionnel)</span></label>
+          <textarea class="f-textarea" id="f-desc" placeholder="Ton serveur, concept, références... Tu pourras compléter sur Discord."></textarea>
         </div>
+        <div class="f-guarantee">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="#A855F7" stroke-width="2" stroke-linejoin="round"/></svg>
+          Satisfait ou retouches illimitées · Réponse sous 24h · Aucun engagement
+        </div>
+        <button class="f-submit" id="f-btn" onclick="submitOrder()">
+          <span id="f-label">Envoyer ma commande →</span>
+          <span id="f-spin" style="display:none"><div class="spinner"></div></span>
+        </button>
+        <div class="form-api-error" id="api-error">Erreur. Contacte-nous : <strong>discord.gg/KcwCGdQbQz</strong></div>
       </div>
-
-      <div class="form-group">
-        <label class="form-label">Type de vidéo</label>
-        <select class="form-select" id="f-type">
-          <option value="">— Sélectionne un type —</option>
-          <option value="Trailer FiveM">Trailer FiveM</option>
-          <option value="Trailer Minecraft">Trailer Minecraft</option>
-          <option value="Format court (TikTok / Short / Reel)">Format court (TikTok / Short / Reel)</option>
-          <option value="Format long">Format long</option>
-          <option value="Autre">Autre</option>
-        </select>
-        <div class="form-error" id="err-type">Sélectionne un type de vidéo.</div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Décris ton projet</label>
-        <textarea class="form-textarea" id="f-desc" placeholder="Parle-nous de ton serveur, ton concept, tes attentes, tes références..."></textarea>
-        <div class="form-error" id="err-desc">Décris ton projet en quelques mots.</div>
-      </div>
-
-      <button class="form-submit" id="submit-btn" onclick="submitOrder()">
-        <span id="submit-label">Envoyer ma commande</span>
-        <span id="submit-spinner" style="display:none"><div class="spinner"></div></span>
-      </button>
     </div>
-
-    <!-- Succès -->
     <div class="modal-success" id="modal-success">
-      <div class="success-icon">✓</div>
+      <div class="success-check">✓</div>
       <div class="success-title">Commande envoyée !</div>
-      <div class="success-desc">On a bien reçu ta demande. On te contacte sur Discord dans les <strong>24h</strong> pour démarrer.</div>
-      <a href="https://discord.gg/KcwCGdQbQz" target="_blank" class="success-discord">
-        <svg width="16" height="12" viewBox="0 0 24 18" fill="none"><path d="M20.3 1.5A19.8 19.8 0 0015 0c-.2.4-.4.9-.6 1.3A18.3 18.3 0 009.7 1.3 12.7 12.7 0 009 0 19.8 19.8 0 003.7 1.5C.5 6.2-.3 10.8.1 15.3a20 20 0 006.1 3.1 15.3 15.3 0 001.3-2.1 13 13 0 01-2-.9l.5-.4a14.2 14.2 0 0012 0l.5.4a13 13 0 01-2 .9 15.3 15.3 0 001.3 2.1 19.9 19.9 0 006.1-3.1c.5-5.2-.9-9.7-3.6-13.8zM8 12.5c-1.2 0-2.1-1.1-2.1-2.4S6.9 7.7 8 7.7c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4zm8 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4z" fill="currentColor"/></svg>
-        Rejoindre le Discord
-      </a>
+      <div class="success-desc">Ton salon Discord est créé automatiquement. On te contacte sous <strong>24h</strong> pour démarrer.</div>
+      <div style="display:flex;flex-direction:column;gap:10px;width:100%">
+        <a href="dashboard.html" class="success-dc" style="justify-content:center;background:var(--grd);color:#fff;border:none;background-size:200%;animation:gm 6s linear infinite">
+          📊 Suivre ma commande →
+        </a>
+        <a href="https://discord.gg/KcwCGdQbQz" target="_blank" class="success-dc" style="justify-content:center">
+          <svg class="dc-icon" viewBox="0 0 24 18" fill="none"><path d="M20.3 1.5A19.8 19.8 0 0015 0c-.2.4-.4.9-.6 1.3A18.3 18.3 0 009.7 1.3 12.7 12.7 0 009 0 19.8 19.8 0 003.7 1.5C.5 6.2-.3 10.8.1 15.3a20 20 0 006.1 3.1 15.3 15.3 0 001.3-2.1 13 13 0 01-2-.9l.5-.4a14.2 14.2 0 0012 0l.5.4a13 13 0 01-2 .9 15.3 15.3 0 001.3 2.1 19.9 19.9 0 006.1-3.1c.5-5.2-.9-9.7-3.6-13.8zM8 12.5c-1.2 0-2.1-1.1-2.1-2.4S6.9 7.7 8 7.7c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4zm8 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4z" fill="currentColor"/></svg>
+          Rejoindre le Discord
+        </a>
+      </div>
+      <p style="margin-top:12px;font-size:11px;color:var(--t4);line-height:1.6">
+        Pour le dashboard, connecte-toi avec le tag Discord<br>que tu viens d'utiliser dans le formulaire.
+      </p>
     </div>
   </div>
 </div>
 
-<!-- STICKY CTA -->
-<div class="sticky-cta">
-  <span>Boostons ton projet ensemble</span>
-  <button class="btn-order" onclick="openModal()">
-    <svg class="discord-icon" viewBox="0 0 24 18" fill="none"><path d="M20.3 1.5A19.8 19.8 0 0015 0c-.2.4-.4.9-.6 1.3A18.3 18.3 0 009.7 1.3 12.7 12.7 0 009 0 19.8 19.8 0 003.7 1.5C.5 6.2-.3 10.8.1 15.3a20 20 0 006.1 3.1 15.3 15.3 0 001.3-2.1 13 13 0 01-2-.9l.5-.4a14.2 14.2 0 0012 0l.5.4a13 13 0 01-2 .9 15.3 15.3 0 001.3 2.1 19.9 19.9 0 006.1-3.1c.5-5.2-.9-9.7-3.6-13.8zM8 12.5c-1.2 0-2.1-1.1-2.1-2.4S6.9 7.7 8 7.7c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4zm8 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4z" fill="currentColor"/></svg>
-    Commander
-  </button>
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <span class="sticky-bar-text">Démarre ton projet</span>
+  <button class="btn btn-primary" onclick="openModal()" style="padding:9px 18px;font-size:13px;border-radius:50px">Commander →</button>
+</div>
+
+<!-- URGENCY BANNER -->
+<div class="urgency-banner">
+  <span class="dot-pulse"></span>
+  <strong>2 slots disponibles cette semaine</strong> — Livraison garantie sous 48h
 </div>
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#hero" class="nav-logo"><span class="nav-logo-dot"></span>Slide Studio</a>
+  <a href="#hero" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 80 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="28" cy="28" r="26" fill="url(#lg1)"/>
+      <path d="M22 20l16 8-16 8V20z" fill="white"/>
+      <circle cx="56" cy="28" r="18" fill="url(#lg2)"/>
+      <circle cx="56" cy="28" r="6" fill="white" opacity=".3"/>
+      <circle cx="56" cy="28" r="2.5" fill="white"/>
+      <defs>
+        <linearGradient id="lg1" x1="2" y1="2" x2="54" y2="54" gradientUnits="userSpaceOnUse"><stop stop-color="#38BDF8"/><stop offset=".5" stop-color="#818CF8"/><stop offset="1" stop-color="#A855F7"/></linearGradient>
+        <linearGradient id="lg2" x1="38" y1="10" x2="74" y2="46" gradientUnits="userSpaceOnUse"><stop stop-color="#A855F7"/><stop offset="1" stop-color="#EC4899"/></linearGradient>
+      </defs>
+    </svg>
+    Slide Studio
+  </a>
   <ul class="nav-links">
-    <li><a href="#about">Services</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#pricing">Tarifs</a></li>
-    <li><a href="#process">Process</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="dashboard.html" class="nav-dash">📊 Mon dashboard</a></li>
   </ul>
-  <button class="nav-cta" onclick="openModal()">Commander →</button>
+  <button class="btn-nav" onclick="openModal()">Commander →</button>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
-  <div class="hero-line"></div>
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Studio créatif gaming &nbsp;·&nbsp; <span>Trailers &amp; Formats courts</span></div>
-    <h1 class="hero-h1">Des vidéos qui<br><span class="acc-word">captivent.</span><br><em>Des résultats.</em></h1>
-    <p class="hero-sub">Slide Studio produit des trailers Minecraft, FiveM et formats courts pensés pour convertir — de l'idée au montage final.</p>
-    <div class="hero-actions">
-      <button class="btn btn-grad" onclick="openModal()">
-        <svg class="discord-icon" viewBox="0 0 24 18" fill="none"><path d="M20.3 1.5A19.8 19.8 0 0015 0c-.2.4-.4.9-.6 1.3A18.3 18.3 0 009.7 1.3 12.7 12.7 0 009 0 19.8 19.8 0 003.7 1.5C.5 6.2-.3 10.8.1 15.3a20 20 0 006.1 3.1 15.3 15.3 0 001.3-2.1 13 13 0 01-2-.9l.5-.4a14.2 14.2 0 0012 0l.5.4a13 13 0 01-2 .9 15.3 15.3 0 001.3 2.1 19.9 19.9 0 006.1-3.1c.5-5.2-.9-9.7-3.6-13.8zM8 12.5c-1.2 0-2.1-1.1-2.1-2.4S6.9 7.7 8 7.7c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4zm8 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4z" fill="currentColor"/></svg>
-        Commander une vidéo
-      </button>
-      <a href="#portfolio" class="btn btn-ghost">Voir le portfolio</a>
+  <div class="glow glow-1"></div><div class="glow glow-2"></div><div class="glow glow-3"></div>
+  <div class="hero-label"><span class="dot-live"></span>Studio Vidéo Gaming · Production Premium</div>
+  <h1 class="hero-h1">Des vidéos<br><span class="grad">qui convertissent.</span><br><span class="dim">Vraiment.</span></h1>
+  <p class="hero-sub">Trailers FiveM, Minecraft et formats courts pensés pour exploser ta visibilité — du brief à la livraison sous 48h.</p>
+
+  <!-- MINI SOCIAL PROOF -->
+  <div class="hero-proof">
+    <div class="proof-avatars">
+      <div class="proof-av pa1">FD</div>
+      <div class="proof-av pa2">VL</div>
+      <div class="proof-av pa3">PL</div>
+      <div class="proof-av pa4">RB</div>
+      <div class="proof-av pa5">+</div>
     </div>
-    <div class="hero-stats">
-      <div class="hstat"><span class="hstat-n" data-target="40">0</span><span class="hstat-l">Clients satisfaits</span></div>
-      <div class="hstat"><span class="hstat-n" data-target="60">0</span><span class="hstat-l">Vidéos réalisées</span></div>
-      <div class="hstat"><span class="hstat-n" data-target="20">0</span><span class="hstat-l">Serveurs accompagnés</span></div>
+    <div>
+      <div class="proof-stars">★★★★★</div>
+      <div class="proof-text"><strong>50+ clients</strong> · 100% satisfaits</div>
     </div>
   </div>
-  <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
+
+  <div class="hero-btns">
+    <button class="btn btn-primary" onclick="openModal()">
+      <svg class="dc-icon" viewBox="0 0 24 18" fill="none"><path d="M20.3 1.5A19.8 19.8 0 0015 0c-.2.4-.4.9-.6 1.3A18.3 18.3 0 009.7 1.3 12.7 12.7 0 009 0 19.8 19.8 0 003.7 1.5C.5 6.2-.3 10.8.1 15.3a20 20 0 006.1 3.1 15.3 15.3 0 001.3-2.1 13 13 0 01-2-.9l.5-.4a14.2 14.2 0 0012 0l.5.4a13 13 0 01-2 .9 15.3 15.3 0 001.3 2.1 19.9 19.9 0 006.1-3.1c.5-5.2-.9-9.7-3.6-13.8zM8 12.5c-1.2 0-2.1-1.1-2.1-2.4S6.9 7.7 8 7.7c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4zm8 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4z" fill="currentColor"/></svg>
+      Obtenir ma vidéo
+    </button>
+    <a href="#portfolio" class="btn btn-outline">Voir le portfolio</a>
+  </div>
+
+  <div class="hero-guarantee">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    Satisfait ou retouches illimitées · Sans engagement · Réponse sous 24h
+  </div>
+
+  <div class="hero-stats">
+    <div class="hstat"><span class="hstat-n" data-target="50">+50</span><span class="hstat-l">Clients</span></div>
+    <div class="hstat"><span class="hstat-n" data-target="100">+100</span><span class="hstat-l">Vidéos</span></div>
+    <div class="hstat"><span class="hstat-n" data-target="30">+30</span><span class="hstat-l">Serveurs</span></div>
+  </div>
+  <div class="hero-scroll"><div class="hero-scroll-line"></div><span class="hero-scroll-text">Scroll</span></div>
 </section>
 
-<hr class="hr">
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="dot"></span>FiveM Trailers</div>
+    <div class="marquee-item"><span class="dot"></span>Minecraft</div>
+    <div class="marquee-item"><span class="dot"></span>Formats Courts</div>
+    <div class="marquee-item"><span class="dot"></span>TikTok · Shorts · Reels</div>
+    <div class="marquee-item"><span class="dot"></span>Voix Off Pro</div>
+    <div class="marquee-item"><span class="dot"></span>Livraison 48h</div>
+    <div class="marquee-item"><span class="dot"></span>🔴 Lives Multi-Plateformes</div>
+    <div class="marquee-item"><span class="dot"></span>YouTube · TikTok · Twitch</div>
+    <div class="marquee-item"><span class="dot"></span>100% Satisfait</div>
+    <div class="marquee-item"><span class="dot"></span>FiveM Trailers</div>
+    <div class="marquee-item"><span class="dot"></span>Minecraft</div>
+    <div class="marquee-item"><span class="dot"></span>Formats Courts</div>
+    <div class="marquee-item"><span class="dot"></span>TikTok · Shorts · Reels</div>
+    <div class="marquee-item"><span class="dot"></span>Voix Off Pro</div>
+    <div class="marquee-item"><span class="dot"></span>Livraison 48h</div>
+    <div class="marquee-item"><span class="dot"></span>🔴 Lives Multi-Plateformes</div>
+    <div class="marquee-item"><span class="dot"></span>YouTube · TikTok · Twitch</div>
+    <div class="marquee-item"><span class="dot"></span>100% Satisfait</div>
+  </div>
+</div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-wrap">
-    <div class="about-left">
-      <span class="s-label rv">Ce qu'on fait</span>
-      <h2 class="s-title rv d1">Des vidéos pensées<br>pour <em>performer</em></h2>
-      <p class="rv d2">Nous créons des contenus dynamiques à forte rétention pour booster la visibilité de ton projet. Chaque production est construite autour d'un seul objectif : convertir.</p>
-      <div class="feature-grid rv d3">
-        <div class="feat"><span class="feat-icon">💡</span><div class="feat-title">Recherche d'idée</div><div class="feat-desc">On trouve l'angle qui accroche et qui se démarque.</div></div>
-        <div class="feat"><span class="feat-icon">📝</span><div class="feat-title">Script structuré</div><div class="feat-desc">Chaque seconde est pensée pour garder l'attention.</div></div>
-        <div class="feat"><span class="feat-icon">🎙️</span><div class="feat-title">Voix off pro</div><div class="feat-desc">Narration claire, impactante et professionnelle.</div></div>
-        <div class="feat"><span class="feat-icon">🎬</span><div class="feat-title">Montage premium</div><div class="feat-desc">Cuts dynamiques, effets et synchro musicale.</div></div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-layout">
+    <div>
+      <span class="label rv">Ce qu'on fait</span>
+      <h2 class="h2 rv d1">Production vidéo<br><em>de niveau</em> <span class="g">studio.</span></h2>
+      <p class="body-text rv d2">Chaque vidéo est pensée pour capter l'attention dès la 1ère seconde et convertir ton audience en joueurs, abonnés ou clients.</p>
+      <div class="serv-cards rv d3">
+        <div class="sc"><div class="sc-icon">💡</div><div class="sc-name">Concept & Angle</div><div class="sc-desc">On trouve l'accroche qui performe dès les 3 premières secondes.</div></div>
+        <div class="sc"><div class="sc-icon">📝</div><div class="sc-name">Script Optimisé</div><div class="sc-desc">Chaque seconde maximise la rétention et pousse à l'action.</div></div>
+        <div class="sc"><div class="sc-icon">🎙️</div><div class="sc-name">Voix Off Pro</div><div class="sc-desc">Narration claire, tonalité gaming, impact émotionnel maximal.</div></div>
+        <div class="sc"><div class="sc-icon">🎬</div><div class="sc-name">Montage Premium</div><div class="sc-desc">Cuts dynamiques, effets cinématiques, synchro musicale parfaite.</div></div>
+        <div class="sc" style="grid-column:span 2;background:linear-gradient(135deg,rgba(168,85,247,.08),rgba(236,72,153,.05));border-top:1.5px solid rgba(168,85,247,.25)">
+          <div class="sc-icon">🔴</div>
+          <div class="sc-name" style="background:var(--grd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Lives Multi-Plateformes — NOUVEAU</div>
+          <div class="sc-desc">On diffuse ton serveur en <strong style="color:var(--t2)">live simultané</strong> sur YouTube, TikTok et Twitch depuis ton compte. FiveM, Minecraft, tout type de serveur — visibilité maximale en temps réel. <strong style="color:var(--c3)">8€/heure.</strong></div>
+        </div>
       </div>
     </div>
-    <div class="about-right rv d2">
-      <div class="workflow-card">
-        <div class="wc-label">Notre workflow</div>
-        <div class="wstep"><div class="wstep-num">1</div><div><div class="wstep-title">Brief & Idée</div><div class="wstep-desc">On analyse ton projet et identifie l'angle le plus percutant.</div></div></div>
-        <div class="wstep"><div class="wstep-num">2</div><div><div class="wstep-title">Script & Voix off</div><div class="wstep-desc">Rédaction d'un script optimisé, puis enregistrement professionnel.</div></div></div>
-        <div class="wstep"><div class="wstep-num">3</div><div><div class="wstep-title">Montage premium</div><div class="wstep-desc">Effets, transitions, musique — tout synchronisé au détail.</div></div></div>
-        <div class="wstep"><div class="wstep-num">4</div><div><div class="wstep-title">Livraison & révisions</div><div class="wstep-desc">Retours rapides, modifications incluses jusqu'à satisfaction.</div></div></div>
+    <div class="rv d2">
+      <div class="proc-card">
+        <div class="proc-tag">Workflow</div>
+        <div class="proc-step"><div class="proc-n">1</div><div><div class="proc-title">Brief & Idée</div><div class="proc-desc">On analyse ton projet et identifie l'angle le plus percutant.</div></div></div>
+        <div class="proc-step"><div class="proc-n">2</div><div><div class="proc-title">Script & Voix off</div><div class="proc-desc">Rédaction d'un script optimisé pour la rétention, puis enregistrement.</div></div></div>
+        <div class="proc-step"><div class="proc-n">3</div><div><div class="proc-title">Montage Premium</div><div class="proc-desc">Effets, transitions, musique — tout synchronisé au détail près.</div></div></div>
+        <div class="proc-step"><div class="proc-n">4</div><div><div class="proc-title">Livraison & révisions</div><div class="proc-desc">Retours rapides, corrections incluses jusqu'à satisfaction totale.</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="hr">
+<hr class="divider">
 
 <!-- PORTFOLIO -->
 <section id="portfolio">
-  <div class="portfolio-head rv">
-    <div class="portfolio-head-left">
-      <span class="s-label">Nos réalisations</span>
-      <h2 class="s-title" style="margin-bottom:0">Portfolio</h2>
-    </div>
-    <div class="filter-pills">
-      <button class="pill active" onclick="filter('all',this)">Tout</button>
-      <button class="pill" onclick="filter('fivem',this)">FiveM</button>
-      <button class="pill" onclick="filter('short',this)">Formats courts</button>
-      <button class="pill" onclick="filter('long',this)">Long</button>
+  <div class="port-header rv">
+    <div><span class="label">Nos réalisations</span><h2 class="h2" style="margin-bottom:0">Portfolio</h2></div>
+    <div class="pills">
+      <button class="pill on" onclick="filterVids('all',this)">Tout</button>
+      <button class="pill" onclick="filterVids('fivem',this)">FiveM</button>
+      <button class="pill" onclick="filterVids('minecraft',this)">Minecraft</button>
+      <button class="pill" onclick="filterVids('gmod',this)">Garry's Mod</button>
+      <button class="pill" onclick="filterVids('short',this)">Formats courts</button>
+      <button class="pill" onclick="filterVids('long',this)">Long</button>
     </div>
   </div>
-
   <div class="pgrid rv d1" id="pgrid">
-    <!-- FiveM 1 -->
-    <a href="https://youtu.be/-0JyB8aEMfI" target="_blank" class="vcard" data-cat="fivem">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/-0JyB8aEMfI/maxresdefault.jpg')"></div>
-      <div class="vcard-play"></div>
-      <div class="vcard-info"><span class="vcard-badge b-fivem">FiveM</span><div class="vcard-title">Trailer FiveM — Serveur RP</div></div>
-    </a>
-    <!-- FiveM 2 -->
-    <a href="https://youtu.be/xFJgQQx498A" target="_blank" class="vcard" data-cat="fivem">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/xFJgQQx498A/maxresdefault.jpg')"></div>
-      <div class="vcard-play"></div>
-      <div class="vcard-info"><span class="vcard-badge b-fivem">FiveM</span><div class="vcard-title">Trailer FiveM — Cinématique</div></div>
-    </a>
-    <!-- FiveM TikTok 1 (corrigé) -->
-    <a href="https://vt.tiktok.com/ZS92rCUc1/" target="_blank" class="vcard vcard-tall" data-cat="fivem">
-      <div class="tt-thumb">
-        <svg width="36" height="42" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg>
-        <span>Voir sur TikTok</span>
-      </div>
-      <div class="vcard-play"></div>
-      <div class="vcard-info"><span class="vcard-badge b-fivem">FiveM</span><div class="vcard-title">Trailer FiveM — TikTok</div></div>
-    </a>
-    <!-- FiveM TikTok 2 (corrigé) -->
-    <a href="https://vt.tiktok.com/ZS98Ux96q/" target="_blank" class="vcard vcard-tall" data-cat="fivem">
-      <div class="tt-thumb">
-        <svg width="36" height="42" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg>
-        <span>Voir sur TikTok</span>
-      </div>
-      <div class="vcard-play"></div>
-      <div class="vcard-info"><span class="vcard-badge b-fivem">FiveM</span><div class="vcard-title">Trailer FiveM — TikTok Edit</div></div>
-    </a>
-    <!-- Short 1 -->
-    <a href="https://www.youtube.com/shorts/YaVdTA4xe5k" target="_blank" class="vcard vcard-tall" data-cat="short">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/YaVdTA4xe5k/maxresdefault.jpg');aspect-ratio:9/16"></div>
-      <div class="vcard-play"></div>
-      <div class="vcard-info"><span class="vcard-badge b-short">Short</span><div class="vcard-title">YouTube Short — Haute rétention</div></div>
-    </a>
-    <!-- Short 2 -->
-    <a href="https://youtube.com/shorts/P9u2KEKMwpA" target="_blank" class="vcard vcard-tall" data-cat="short">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/P9u2KEKMwpA/maxresdefault.jpg');aspect-ratio:9/16"></div>
-      <div class="vcard-play"></div>
-      <div class="vcard-info"><span class="vcard-badge b-short">Short</span><div class="vcard-title">YouTube Short — Viral Edit</div></div>
-    </a>
-    <!-- Short 3 -->
-    <a href="https://youtube.com/shorts/ib5CFRxw2jU" target="_blank" class="vcard vcard-tall" data-cat="short">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/ib5CFRxw2jU/maxresdefault.jpg');aspect-ratio:9/16"></div>
-      <div class="vcard-play"></div>
-      <div class="vcard-info"><span class="vcard-badge b-short">Short</span><div class="vcard-title">Short — Dynamic Cut</div></div>
-    </a>
-    <!-- Long -->
-    <a href="https://youtu.be/xQv5bDGwK9M" target="_blank" class="vcard" data-cat="long">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/xQv5bDGwK9M/maxresdefault.jpg')"></div>
-      <div class="vcard-play"></div>
-      <div class="vcard-info"><span class="vcard-badge b-long">Format Long</span><div class="vcard-title">Vidéo longue — Premium Edit</div></div>
-    </a>
-    <!-- Short 4 -->
-    <a href="https://youtube.com/shorts/nFs5wl4cHjE" target="_blank" class="vcard vcard-tall" data-cat="short">
-      <div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/nFs5wl4cHjE/maxresdefault.jpg');aspect-ratio:9/16"></div>
-      <div class="vcard-play"></div>
-      <div class="vcard-info"><span class="vcard-badge b-short">Short</span><div class="vcard-title">Short — Contenu viral</div></div>
-    </a>
+    <a href="https://vt.tiktok.com/ZS92rCUc1/" target="_blank" class="vcard vcard-tall" data-cat="fivem"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>EastBorn FA</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-fivem">FiveM</span><div class="vcard-title">EastBorn FA — Annonce ouverture</div></div></a>
+    <a href="https://vt.tiktok.com/ZS98Ux96q/" target="_blank" class="vcard vcard-tall" data-cat="fivem"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>AsgardRP</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-fivem">FiveM</span><div class="vcard-title">AsgardRP — Trailer immersif</div></div></a>
+    <!-- Nouvelles vidéos FiveM -->
+    <a href="https://www.tiktok.com/@storm.life.fa/video/7634637149001846038" target="_blank" class="vcard vcard-tall" data-cat="fivem"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Storm Life FA</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-fivem">FiveM</span><div class="vcard-title">Storm Life FA — Trailer</div></div></a>
+    <a href="https://www.tiktok.com/@onelifefa.officiel/video/7636787959966059798" target="_blank" class="vcard vcard-tall" data-cat="fivem"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>One Life FA</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-fivem">FiveM</span><div class="vcard-title">One Life FA — Trailer officiel</div></div></a>
+    <a href="https://www.tiktok.com/@tbn_fa/video/7636492367951924502" target="_blank" class="vcard vcard-tall" data-cat="fivem"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>TBN FA</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-fivem">FiveM</span><div class="vcard-title">TBN FA — Trailer</div></div></a>
+    <!-- Garry's Mod -->
+    <a href="https://www.youtube.com/watch?v=qDan3O5VF6c" target="_blank" class="vcard" data-cat="gmod"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/qDan3O5VF6c/maxresdefault.jpg')"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-gmod">Garry's Mod</span><div class="vcard-title">Trailer Garry's Mod</div></div></a><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/xQv5bDGwK9M/maxresdefault.jpg')"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-long">Format Long</span><div class="vcard-title">Anakin — Les célébrités sur Roblox</div></div></a>
+    <a href="https://www.tiktok.com/@flowhardware_officiel/video/7619653330758880534" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>FlowHardware</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">FlowHardware — Edit #1</div></div></a>
+    <a href="https://www.tiktok.com/@flowhardware_officiel/video/7617033963256679702" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>FlowHardware</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">FlowHardware — Edit #2</div></div></a>
+    <a href="https://www.tiktok.com/@gabinpriv/video/7616031009066339606" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Gabin</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">Gabin — Short viral</div></div></a>
+    <a href="https://youtube.com/shorts/zobx1_c7Xk4" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/zobx1_c7Xk4/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">TikSuccess — Portfolio 2</div></div></a>
+    <a href="https://youtube.com/shorts/_Xl47VHg6OM" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/_Xl47VHg6OM/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">Novarya — Edit #2</div></div></a>
+    <a href="https://www.tiktok.com/@helloserv.fr/video/7613821691881377046" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>HelloServ</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">HelloServ — Contenu brand</div></div></a>
+    <a href="https://www.tiktok.com/@yorkhost_officiel/video/7614975599165115670" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>YorkHost</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">YorkHost ☁️ — Brand edit</div></div></a>
+    <a href="https://www.tiktok.com/@paulfromcynique/video/7613451273081277729" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Cynique</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">Cynique — Edit marque #1</div></div></a>
+    <a href="https://www.tiktok.com/@paulfromcynique/video/7614890781861514528" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Cynique</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">TikTok</span><div class="vcard-title">Cynique — Edit marque #2</div></div></a>
+    <a href="https://youtube.com/shorts/nFs5wl4cHjE" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/nFs5wl4cHjE/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">Cynique — Short marque</div></div></a>
+    <a href="https://www.youtube.com/shorts/Q_cudD2hJNs" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/Q_cudD2hJNs/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">AwaZeK — 100 TNT 💥</div></div></a>
+    <a href="https://www.youtube.com/shorts/X7W9Nv15ZUI" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/X7W9Nv15ZUI/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">AwaZeK — Astuce richesse 💎</div></div></a>
+    <a href="https://www.youtube.com/shorts/vTDBH6kadPw" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/vTDBH6kadPw/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">AwaZeK — Épée créatif 😱</div></div></a>
+    <a href="https://youtube.com/shorts/-a8BvgDAzQ8" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/-a8BvgDAzQ8/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">Short — Edit premium</div></div></a>
+    <a href="https://youtube.com/shorts/9RCVY_z-tNU" target="_blank" class="vcard vcard-tall" data-cat="short"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/9RCVY_z-tNU/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-short">Short</span><div class="vcard-title">Short — Contenu viral</div></div></a>
+    <a href="https://vt.tiktok.com/ZSuULt7Q5/" target="_blank" class="vcard vcard-tall" data-cat="minecraft"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Novarya</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Novarya — Trailer Survie</div></div></a>
+    <a href="https://www.youtube.com/shorts/YaVdTA4xe5k" target="_blank" class="vcard vcard-tall" data-cat="minecraft"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/YaVdTA4xe5k/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Hycraft Ages — Lancement</div></div></a>
+    <a href="https://www.tiktok.com/@cobblenite/video/7614136890937134339" target="_blank" class="vcard vcard-tall" data-cat="minecraft"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Cobblenite</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Cobblenite — Trailer serveur</div></div></a>
+    <a href="https://www.youtube.com/shorts/cdjbPW0Zmao" target="_blank" class="vcard vcard-tall" data-cat="minecraft"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/cdjbPW0Zmao/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Evaliacraft — RDV 15 mai</div></div></a>
+    <a href="https://youtube.com/shorts/P9u2KEKMwpA" target="_blank" class="vcard vcard-tall" data-cat="minecraft"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/P9u2KEKMwpA/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">ForgeMC — Phase 2</div></div></a>
+    <a href="https://youtube.com/shorts/ib5CFRxw2jU" target="_blank" class="vcard vcard-tall" data-cat="minecraft"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/ib5CFRxw2jU/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">ForgeMC — Edit #1</div></div></a>
+    <a href="https://youtube.com/shorts/wqAy93zker0" target="_blank" class="vcard vcard-tall" data-cat="minecraft"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/wqAy93zker0/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Arkium — Projet #1</div></div></a>
+    <a href="https://youtube.com/shorts/zDtWlN0bFOw" target="_blank" class="vcard vcard-tall" data-cat="minecraft"><div class="vcard-thumb" style="background-image:url('https://img.youtube.com/vi/zDtWlN0bFOw/maxresdefault.jpg');aspect-ratio:9/16"></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Atheramc — Survie RPG</div></div></a>
+    <a href="https://www.tiktok.com/@atheramc/video/7614190643698748694" target="_blank" class="vcard vcard-tall" data-cat="minecraft"><div class="tt-thumb"><svg width="30" height="36" viewBox="0 0 24 28" fill="white"><path d="M19.6 6.3a6.9 6.9 0 01-4.1-3.9V0h-3.7v19.1a2.9 2.9 0 01-2.9 2.5 2.9 2.9 0 01-2.9-2.9 2.9 2.9 0 012.9-2.9c.3 0 .6 0 .8.1V12a6.6 6.6 0 00-.8 0 6.6 6.6 0 00-6.6 6.6 6.6 6.6 0 006.6 6.6 6.6 6.6 0 006.6-6.6V9.8a10.5 10.5 0 006.1 2V8a6.9 6.9 0 01-2-.7z"/></svg><span>Atheramc</span></div><div class="vcard-overlay"><div class="play-btn"></div></div><div class="vcard-meta"><span class="badge b-minecraft">Minecraft</span><div class="vcard-title">Atheramc — TikTok RPG</div></div></a>
   </div>
-
-  <p class="portfolio-more rv d2">Et bien plus encore — <a href="https://discord.gg/KcwCGdQbQz" target="_blank">demander le portfolio complet sur Discord →</a></p>
+  <p class="port-more rv d2">Et bien plus — <a href="https://discord.gg/KcwCGdQbQz" target="_blank">portfolio complet sur Discord →</a></p>
 </section>
 
-<hr class="hr">
+<hr class="divider">
 
 <!-- PRICING -->
 <section id="pricing">
-  <div style="max-width:1100px;margin:0 auto">
-    <span class="s-label rv">Tarifs</span>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end" class="rv d1">
-      <h2 class="s-title">Simple,<br><em>transparent.</em></h2>
-      <p class="s-sub">Une qualité premium accessible. Chaque vidéo est produite avec le même soin, quel que soit le forfait choisi.</p>
+  <div class="pricing-inner">
+    <div class="pricing-top rv">
+      <div class="pricing-urgency"><span class="dot-pulse"></span>2 slots disponibles cette semaine</div>
+      <h2 class="h2" style="margin-bottom:10px">Simple. <em>Sans surprise.</em></h2>
+      <p class="body-text" style="margin:0 auto;max-width:360px;text-align:center">Plus tu commandes, plus le coût par vidéo baisse.</p>
     </div>
-  </div>
-  <div class="pricing-wrap">
-    <div class="pcard rv d1">
-      <div class="pcard-name">Starter</div>
-      <div class="pcard-price">13</div>
-      <div class="pcard-unit">€ par vidéo</div>
-      <div class="pcard-sep"></div>
-      <ul class="pcard-list"><li>Recherche d'idée</li><li>Script structuré</li><li>Voix off professionnelle</li><li>Montage dynamique</li><li>Livraison rapide</li></ul>
-      <button class="btn btn-ghost" onclick="openModal('Starter — 1 vidéo — 13€')" style="width:100%;justify-content:center;">Commander →</button>
+    <div class="pricing-grid rv d1">
+      <div class="pcard">
+        <div class="pcard-tag">Pack Starter</div>
+        <div class="pcard-price">15€</div>
+        <div class="pcard-unit">par vidéo</div>
+        <div class="pcard-per">= 15€ / vidéo</div>
+        <div class="pcard-line"></div>
+        <ul class="pcard-list"><li>1× production complète</li><li>Montage premium</li><li>Voix off professionnelle</li><li>2 révisions incluses</li></ul>
+        <button class="btn btn-outline" onclick="openModal('Pack 1 vidéo — 15€')" style="width:100%;justify-content:center;border-radius:6px">Commander →</button>
+        <div class="pcard-guarantee"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Satisfait ou retouches incluses</div>
+      </div>
+      <div class="pcard hot">
+        <div class="pcard-hot-badge">Populaire</div>
+        <div class="pcard-tag">Pack Pro</div>
+        <div class="pcard-price">60€</div>
+        <div class="pcard-unit">pour 5 vidéos</div>
+        <div class="pcard-per">= 12€ / vidéo</div>
+        <div class="pcard-line"></div>
+        <ul class="pcard-list"><li>5× production complète</li><li>Stratégie contenu offerte</li><li>Priorité de livraison</li><li>Révisions illimitées</li></ul>
+        <button class="btn btn-primary" onclick="openModal('Pack 5 vidéos — 60€')" style="width:100%;justify-content:center;border-radius:6px">Commander →</button>
+        <div class="pcard-guarantee"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Satisfait ou retouches incluses</div>
+      </div>
+      <div class="pcard">
+        <div class="pcard-tag">Pack Studio</div>
+        <div class="pcard-price">110€</div>
+        <div class="pcard-unit">pour 10 vidéos</div>
+        <div class="pcard-per">= 11€ / vidéo</div>
+        <div class="pcard-line"></div>
+        <ul class="pcard-list"><li>10× production complète</li><li>Stratégie contenu offerte</li><li>Priorité de livraison</li><li>Suivi de performance</li><li>Révisions illimitées</li></ul>
+        <button class="btn btn-outline" onclick="openModal('Pack 10 vidéos — 110€')" style="width:100%;justify-content:center;border-radius:6px">Commander →</button>
+        <div class="pcard-guarantee"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Satisfait ou retouches incluses</div>
+      </div>
     </div>
-    <div class="pcard rv d2">
-      <div class="pcard-name">Pack 5</div>
-      <div class="pcard-price">60</div>
-      <div class="pcard-unit">€ pour 5 vidéos</div>
-      <div class="pcard-per">= 12 € / vidéo</div>
-      <div class="pcard-sep"></div>
-      <ul class="pcard-list"><li>5× recherche d'idée</li><li>5× script + voix off</li><li>5× montage premium</li><li>Suivi personnalisé</li><li>Révisions incluses</li></ul>
-      <button class="btn btn-ghost" onclick="openModal('Pack 5 vidéos — 60€')" style="width:100%;justify-content:center;">Commander →</button>
-    </div>
-    <div class="pcard feat-p rv d3">
-      <div class="pcard-badge">Meilleure offre</div>
-      <div class="pcard-name">Pack 10</div>
-      <div class="pcard-price">110</div>
-      <div class="pcard-unit">€ pour 10 vidéos</div>
-      <div class="pcard-per">= 11 € / vidéo</div>
-      <div class="pcard-sep"></div>
-      <ul class="pcard-list"><li>10× production complète</li><li>Stratégie contenu offerte</li><li>Priorité de livraison</li><li>Suivi de performance</li><li>Révisions illimitées</li></ul>
-      <button class="btn btn-grad" onclick="openModal('Pack 10 vidéos — 110€')" style="width:100%;justify-content:center;">
-        <svg class="discord-icon" viewBox="0 0 24 18" fill="none"><path d="M20.3 1.5A19.8 19.8 0 0015 0c-.2.4-.4.9-.6 1.3A18.3 18.3 0 009.7 1.3 12.7 12.7 0 009 0 19.8 19.8 0 003.7 1.5C.5 6.2-.3 10.8.1 15.3a20 20 0 006.1 3.1 15.3 15.3 0 001.3-2.1 13 13 0 01-2-.9l.5-.4a14.2 14.2 0 0012 0l.5.4a13 13 0 01-2 .9 15.3 15.3 0 001.3 2.1 19.9 19.9 0 006.1-3.1c.5-5.2-.9-9.7-3.6-13.8zM8 12.5c-1.2 0-2.1-1.1-2.1-2.4S6.9 7.7 8 7.7c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4zm8 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4z" fill="currentColor"/></svg>
-        Commander →
-      </button>
+
+    <!-- LIVE CARD -->
+    <div class="live-card rv d2">
+      <div class="live-card-left">
+        <div class="live-badge"><span class="live-dot"></span>NOUVEAU SERVICE</div>
+        <div class="live-title">🔴 Lives Multi-Plateformes</div>
+        <div class="live-desc">On stream ton serveur <strong>en simultané</strong> sur YouTube, TikTok &amp; Twitch depuis tes comptes. FiveM, Minecraft, Garry's Mod — visibilité explosive en temps réel.</div>
+        <div class="live-features">
+          <span class="live-feat">✓ YouTube + TikTok + Twitch</span>
+          <span class="live-feat">✓ Depuis tes comptes</span>
+          <span class="live-feat">✓ FiveM · Minecraft · GMod</span>
+          <span class="live-feat">✓ Animation live incluse</span>
+        </div>
+      </div>
+      <div class="live-card-right">
+        <div class="live-price">8€<span class="live-unit">/heure</span></div>
+        <div class="live-pmin">par plateforme ou toutes en même temps</div>
+        <button class="btn btn-primary" onclick="openModal('Live Multi-Plateformes — 8€/h')" style="padding:12px 22px;font-size:13px">
+          Réserver un live →
+        </button>
+      </div>
     </div>
   </div>
 </section>
-
-<hr class="hr">
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="process-wrap">
-    <div class="process-header">
-      <div><span class="s-label rv">Process</span><h2 class="s-title rv d1">Aussi simple<br><em>que possible.</em></h2></div>
-      <p class="s-sub rv d2">De ton premier message à la livraison finale — on s'occupe de tout. Pas de complexité inutile.</p>
-    </div>
-    <div class="process-steps-grid">
-      <div class="pstep rv d1"><span class="pstep-n">01</span><div class="pstep-title">Tu commandes</div><p class="pstep-desc">Remplis le formulaire directement sur ce site. Ça prend 2 minutes.</p></div>
-      <div class="pstep rv d2"><span class="pstep-n">02</span><div class="pstep-title">On te contacte</div><p class="pstep-desc">On te répond sur Discord sous 24h pour valider les détails de ton projet.</p></div>
-      <div class="pstep rv d3"><span class="pstep-n">03</span><div class="pstep-title">On crée ta vidéo</div><p class="pstep-desc">Script, voix off, montage — on produit un contenu taillé pour performer.</p></div>
-      <div class="pstep rv d4"><span class="pstep-n">04</span><div class="pstep-title">Livraison rapide</div><p class="pstep-desc">Ta vidéo est livrée. On intègre tes retours jusqu'à ce que ce soit parfait.</p></div>
-    </div>
-  </div>
-</section>
-
-<hr class="hr">
-
-<!-- TRUST -->
 <section id="trust">
-  <div class="trust-wrap">
-    <div class="trust-left">
-      <span class="s-label rv">Confiance</span>
-      <h2 class="s-title rv d1">+40 projets.<br><em>Un seul standard.</em></h2>
-      <p class="s-sub rv d2">Des serveurs FiveM et Minecraft aux créateurs de contenu — ils nous font confiance pour booster leur visibilité.</p>
-      <div class="trust-metrics rv d3">
-        <div class="tm"><span class="tm-n" data-target="40">+40</span><div class="tm-l">Clients</div></div>
-        <div class="tm"><span class="tm-n" data-target="60">+60</span><div class="tm-l">Vidéos</div></div>
-        <div class="tm"><span class="tm-n" data-target="20">+20</span><div class="tm-l">Serveurs</div></div>
-        <div class="tm"><span class="tm-n">100%</span><div class="tm-l">Satisfaction</div></div>
+  <div class="trust-layout">
+    <div>
+      <span class="label rv">Confiance</span>
+      <h2 class="h2 rv d1">+50 projets.<br><em>Un seul</em> <span class="g">standard.</span></h2>
+      <p class="body-text rv d2">Des serveurs FiveM aux créateurs YouTube — ils nous font confiance pour booster leur visibilité.</p>
+      <div class="metrics rv d3">
+        <div class="metric"><span class="metric-n" data-target="50">+50</span><div class="metric-l">Clients</div></div>
+        <div class="metric"><span class="metric-n" data-target="100">+100</span><div class="metric-l">Vidéos</div></div>
+        <div class="metric"><span class="metric-n" data-target="30">+30</span><div class="metric-l">Serveurs</div></div>
+        <div class="metric"><span class="metric-n">100%</span><div class="metric-l">Satisfaction</div></div>
       </div>
     </div>
-    <div class="trust-right rv d2">
-      <div class="avatars-block">
-        <div class="av"><div class="av-circle av1">FS</div><span class="av-name">FiveServ</span></div>
-        <div class="av"><div class="av-circle av2">HS</div><span class="av-name">HelloServ</span></div>
-        <div class="av"><div class="av-circle av3">FH</div><span class="av-name">FlowHardware</span></div>
-        <div class="av"><div class="av-circle av4">YH</div><span class="av-name">YorkHost</span></div>
-        <div class="av"><div class="av-circle av5">CF</div><span class="av-name">Cynique</span></div>
-        <div class="av"><div class="av-circle av6">RP</div><span class="av-name">RolePlay FR</span></div>
-        <div class="av"><div class="av-circle av7">MC</div><span class="av-name">MineCore</span></div>
-        <div class="av"><div class="av-circle av8">NX</div><span class="av-name">NexusRP</span></div>
+    <div class="rv d2">
+      <div class="clients-grid">
+        <div class="client-chip"><div class="chip-av av1">FS</div><span class="chip-name">FiveServ</span></div>
+        <div class="client-chip"><div class="chip-av av2">HS</div><span class="chip-name">HelloServ</span></div>
+        <div class="client-chip"><div class="chip-av av3">FH</div><span class="chip-name">FlowHardware</span></div>
+        <div class="client-chip"><div class="chip-av av4">YH</div><span class="chip-name">YorkHost</span></div>
+        <div class="client-chip"><div class="chip-av av5">CQ</div><span class="chip-name">Cynique</span></div>
+        <div class="client-chip"><div class="chip-av av6">NV</div><span class="chip-name">Novarya</span></div>
+        <div class="client-chip"><div class="chip-av av7">FM</div><span class="chip-name">ForgeMC</span></div>
+        <div class="client-chip"><div class="chip-av av8">AT</div><span class="chip-name">Atheramc</span></div>
+        <div class="client-chip"><div class="chip-av av1">CB</div><span class="chip-name">Cobblenite</span></div>
+        <div class="client-chip"><div class="chip-av av3">AK</div><span class="chip-name">Arkium</span></div>
+        <div class="client-chip"><div class="chip-av av2">HC</div><span class="chip-name">Hycraft</span></div>
+        <div class="client-chip"><div class="chip-av av5">AW</div><span class="chip-name">AwaZeK</span></div>
       </div>
-      <div class="more-clients"><strong>+32 autres clients</strong> nous font confiance pour leur contenu gaming.</div>
+      <div class="trust-note"><strong>+38 autres clients</strong> nous font confiance pour leur contenu gaming.</div>
     </div>
   </div>
 </section>
 
-<hr class="hr">
+<hr class="divider">
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testi-inner">
+    <span class="label rv">Avis clients</span>
+    <h2 class="h2 rv d1">Ce qu'ils <em>disent</em> de nous.</h2>
+    <div class="testi-track">
+      <div class="tcard featured rv d1" style="grid-row:span 2">
+        <div class="tcard-top"><div><div class="tcard-name">@Florentin Dev</div><div class="tcard-type">Montage · Novarya</div></div><div class="stars">⭐⭐⭐⭐⭐</div></div>
+        <p class="tcard-text">J'ai commandé 2 vidéos pour mon serveur Novarya — réalisées en quelques jours seulement. Ils font valider chaque étape et effectuent de nombreuses retouches. J'ai fait recommencer 4 fois la voix off et Kairo l'a refait sans problème.<br><br><strong style="color:var(--t1)">Pour le tarif pratiqué, je recommande vivement !</strong></p>
+        <div class="tcard-date">28 fév. 2026</div>
+      </div>
+      <div class="tcard featured rv d2" style="grid-row:span 2">
+        <div class="tcard-top"><div><div class="tcard-name">@Valentin</div><div class="tcard-type">Montage · FlowHardware</div></div><div class="stars">⭐⭐⭐⭐⭐</div></div>
+        <p class="tcard-text">Le résultat a été livré en moins de 48h et était très qualitatif. Nous avons testé une deuxième fois, encore impeccable. Avec l'équipe, on a décidé de faire de ce studio un partenaire principal pour tout ce qui touche au montage.<br><br><strong style="color:var(--t1)">Rapide, efficace, très qualitatif — je recommande vraiment.</strong></p>
+        <div class="tcard-date">23 mars 2026</div>
+      </div>
+      <div class="tcard rv d3"><div class="tcard-top"><div><div class="tcard-name">@paul</div><div class="tcard-type">Montage</div></div><div class="stars">⭐⭐⭐⭐⭐</div></div><p class="tcard-text">Bonne qualité de montage et temps de livraison rapide même après 3 retouches. Je recommande, c'est très pro.</p><div class="tcard-date">4 mars 2026</div></div>
+      <div class="tcard rv d4"><div class="tcard-top"><div><div class="tcard-name">Client vérifié</div><div class="tcard-type">Montage</div></div><div class="stars">⭐⭐⭐⭐⭐</div></div><p class="tcard-text">Service rapide et efficace ! Je recommande ! Le montage était fluide et dynamique !</p><div class="tcard-date">23 mars 2026</div></div>
+      <div class="tcard rv d2"><div class="tcard-top"><div><div class="tcard-name">Client vérifié</div><div class="tcard-type">Montage</div></div><div class="stars">⭐⭐⭐⭐⭐</div></div><p class="tcard-text">Très bon montage pour le prix !</p><div class="tcard-date">12 avril 2026</div></div>
+      <div class="tcard rv d3"><div class="tcard-top"><div><div class="tcard-name">@ReviewB</div><div class="tcard-type">Montage</div></div><div class="stars">⭐⭐⭐⭐⭐</div></div><p class="tcard-text">Très bon montage professionnel et rapide.</p><div class="tcard-date">22 avril 2026</div></div>
+      <div class="tcard rv d4"><div class="tcard-top"><div><div class="tcard-name">@Rengan19</div><div class="tcard-type">Montage</div></div><div class="stars">⭐⭐⭐⭐⭐</div></div><p class="tcard-text">Vidéo au top rapide et efficace, je recommande.</p><div class="tcard-date">24 avril 2026</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- STEPS -->
+<section id="steps">
+  <div class="steps-layout">
+    <div class="steps-header">
+      <div><span class="label rv">Process</span><h2 class="h2 rv d1">Simple<br><em>comme</em> <span class="g">bonjour.</span></h2></div>
+      <p class="body-text rv d2">De ton premier message à la livraison — on s'occupe de tout. Zéro complexité, juste des résultats.</p>
+    </div>
+    <div class="steps-grid rv d1">
+      <div class="step"><span class="step-num">01</span><div class="step-title">Tu commandes</div><p class="step-desc">Remplis le formulaire en 2 minutes. Un salon Discord est créé automatiquement pour toi.</p></div>
+      <div class="step"><span class="step-num">02</span><div class="step-title">On te contacte</div><p class="step-desc">On t'écrit dans ton salon sous 24h pour valider les détails et l'acompte.</p></div>
+      <div class="step"><span class="step-num">03</span><div class="step-title">On crée ta vidéo</div><p class="step-desc">Script, voix off, montage premium — contenu taillé pour performer et convertir.</p></div>
+      <div class="step"><span class="step-num">04</span><div class="step-title">Livraison rapide</div><p class="step-desc">Ta vidéo livrée sous 48h. Retouches incluses jusqu'à satisfaction totale.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-layout">
+    <span class="label rv">FAQ</span>
+    <h2 class="h2 rv d1">Tes questions,<br><span class="g">nos réponses.</span></h2>
+    <div class="faq-list rv d2">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">C'est quoi l'acompte ? Combien ?<i class="faq-icon">+</i></button>
+        <div class="faq-a">On demande <strong>50% à la commande</strong> pour démarrer la production, et les 50% restants à la livraison. Paiement par PayPal, Lydia ou virement — tout se gère dans ton salon Discord.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Combien de temps pour livrer ?<i class="faq-icon">+</i></button>
+        <div class="faq-a">En général <strong>48h à 72h</strong> après validation du brief et réception de l'acompte. Pour les packs 5 et 10 vidéos, on établit un planning ensemble pour respecter tes deadlines.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Si je suis pas content du résultat ?<i class="faq-icon">+</i></button>
+        <div class="faq-a">On retravaille jusqu'à ce que ce soit parfait. <strong>Les retouches sont illimitées</strong> — c'est dans l'ADN du studio. Regarde les avis clients : même 4 fois de suite, on recommence sans problème.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Vous faites quels types de vidéos ?<i class="faq-icon">+</i></button>
+        <div class="faq-a">Trailers FiveM et Minecraft, formats courts (TikTok / YouTube Shorts / Reels), vidéos longues, annonces d'ouverture, contenu de marque. Si tu as un projet différent, parle-nous en sur Discord.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Comment ça se passe concrètement ?<i class="faq-icon">+</i></button>
+        <div class="faq-a">Tu remplis le formulaire → un salon Discord est créé automatiquement → on te contacte sous 24h → on valide le brief et l'acompte → on produit → on livre dans ton salon. <strong>Simple et direct.</strong></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Je fournis quoi comme matériaux ?<i class="faq-icon">+</i></button>
+        <div class="faq-a">Idéalement des clips gameplay, des screenshots, ton logo et une idée du style voulu. <strong>On s'adapte</strong> à ce que tu as — si tu manques de matière on te guide pour en capturer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
 
 <!-- CTA FINAL -->
-<section id="cta-final">
-  <div class="cta-box rv">
-    <span class="s-label">Prêt ?</span>
-    <h2 class="cta-title">Boostons ton projet<br><em>dès aujourd'hui.</em></h2>
-    <p class="cta-sub">Remplis le formulaire — on te répond sous 24h et on démarre ta vidéo.</p>
-    <button class="btn btn-grad" onclick="openModal()" style="font-size:16px;padding:16px 38px;">
-      <svg class="discord-icon" viewBox="0 0 24 18" fill="none"><path d="M20.3 1.5A19.8 19.8 0 0015 0c-.2.4-.4.9-.6 1.3A18.3 18.3 0 009.7 1.3 12.7 12.7 0 009 0 19.8 19.8 0 003.7 1.5C.5 6.2-.3 10.8.1 15.3a20 20 0 006.1 3.1 15.3 15.3 0 001.3-2.1 13 13 0 01-2-.9l.5-.4a14.2 14.2 0 0012 0l.5.4a13 13 0 01-2 .9 15.3 15.3 0 001.3 2.1 19.9 19.9 0 006.1-3.1c.5-5.2-.9-9.7-3.6-13.8zM8 12.5c-1.2 0-2.1-1.1-2.1-2.4S6.9 7.7 8 7.7c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4zm8 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4z" fill="currentColor"/></svg>
-      Commander ma vidéo
+<section id="cta-section">
+  <div class="cta-inner rv">
+    <span class="label" style="display:flex;justify-content:center;align-items:center;gap:8px;margin-bottom:16px">Prêt ?</span>
+    <h2 class="cta-h">Lance ton projet<br><span class="g">maintenant.</span></h2>
+    <p class="cta-sub">Réponds en 2 minutes — on crée ton salon Discord, on te contacte sous 24h et ta vidéo est livrée sous 48h.</p>
+    <button class="btn btn-primary" onclick="openModal()" style="font-size:15px;padding:15px 32px;margin:0 auto">
+      <svg class="dc-icon" viewBox="0 0 24 18" fill="none"><path d="M20.3 1.5A19.8 19.8 0 0015 0c-.2.4-.4.9-.6 1.3A18.3 18.3 0 009.7 1.3 12.7 12.7 0 009 0 19.8 19.8 0 003.7 1.5C.5 6.2-.3 10.8.1 15.3a20 20 0 006.1 3.1 15.3 15.3 0 001.3-2.1 13 13 0 01-2-.9l.5-.4a14.2 14.2 0 0012 0l.5.4a13 13 0 01-2 .9 15.3 15.3 0 001.3 2.1 19.9 19.9 0 006.1-3.1c.5-5.2-.9-9.7-3.6-13.8zM8 12.5c-1.2 0-2.1-1.1-2.1-2.4S6.9 7.7 8 7.7c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4zm8 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4c1.2 0 2.1 1.1 2.1 2.4s-.9 2.4-2.1 2.4z" fill="currentColor"/></svg>
+      Obtenir ma vidéo
     </button>
-    <p class="cta-fine">Sans engagement · Devis gratuit · Réponse sous 24h</p>
+    <p class="cta-fine">Sans engagement · Satisfait ou retouches illimitées · Réponse sous 24h</p>
   </div>
 </section>
 
 <footer>
-  <span class="footer-logo">· Slide Studio</span>
-  <span class="footer-copy">© 2025 Slide Studio — Tous droits réservés</span>
-  <div class="footer-links">
+  <span class="foot-logo">Slide Studio</span>
+  <span class="foot-copy">© 2025 Slide Studio — Tous droits réservés</span>
+  <div class="foot-links">
     <a href="https://discord.gg/KcwCGdQbQz" target="_blank">Discord</a>
     <a href="#portfolio">Portfolio</a>
     <a href="#pricing">Tarifs</a>
+    <a href="dashboard.html" style="color:var(--c3)!important">Dashboard</a>
   </div>
 </footer>
 
 <script>
-/* ── CURSOR ── */
-const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
+const BOT_API='https://kairoobot-production.up.railway.app';
+
+// cursor
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
 let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-(function lerp(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(lerp);})();
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function l(){rx+=(mx-rx)*.09;ry+=(my-ry)*.09;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l)})();
+document.querySelectorAll('a,button,.vcard,.pack-opt').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
 
-/* ── NAV ── */
-window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('stuck',window.scrollY>10);},{passive:true});
+// nav sticky — account for urgency banner
+const banner=document.querySelector('.urgency-banner');
+const bannerH=banner?banner.offsetHeight:36;
+window.addEventListener('scroll',()=>{
+  const stuck=scrollY>bannerH;
+  document.getElementById('nav').classList.toggle('stuck',stuck);
+},{passive:true});
 
-/* ── REVEAL ── */
-const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target);}});},{threshold:.08});
+// reveal
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}}),{threshold:.06});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-/* ── COUNTERS ── */
-function runCounter(el,target){
-  let start=null;
-  (function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/1800,1);el.textContent='+'+Math.round((1-Math.pow(1-p,3))*target);if(p<1)requestAnimationFrame(step);})();
-}
-const cio=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const t=parseInt(x.target.dataset.target);if(t)runCounter(x.target,t);cio.unobserve(x.target);}});},{threshold:.5});
+// counters
+function runCount(el,t){let s=null;(function f(ts){if(!s)s=ts;const p=Math.min((ts-s)/1800,1);el.textContent='+'+Math.round((1-Math.pow(1-p,3))*t);if(p<1)requestAnimationFrame(f)})()}
+const cio=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){const t=parseInt(x.target.dataset.target);if(t)runCount(x.target,t);cio.unobserve(x.target)}}),{threshold:.5});
 document.querySelectorAll('[data-target]').forEach(el=>cio.observe(el));
 
-/* ── FILTER ── */
-function filter(cat,btn){
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));btn.classList.add('active');
+// portfolio filter
+function filterVids(cat,btn){
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));btn.classList.add('on');
   document.querySelectorAll('.vcard').forEach(c=>{
-    const match=cat==='all'||c.dataset.cat===cat;
+    const m=cat==='all'||c.dataset.cat===cat;
     c.style.transition='opacity .3s,transform .3s';
-    if(match){c.style.display='block';requestAnimationFrame(()=>{c.style.opacity='1';c.style.transform='none';});}
-    else{c.style.opacity='0';c.style.transform='scale(.96)';setTimeout(()=>{c.style.display='none';},300);}
+    if(m){c.style.display='block';requestAnimationFrame(()=>{c.style.opacity='1';c.style.transform='none'})}
+    else{c.style.opacity='0';c.style.transform='scale(.95)';setTimeout(()=>c.style.display='none',300)}
   });
 }
 
-/* ── SMOOTH SCROLL ── */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+// smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const t=document.querySelector(a.getAttribute('href'));
+  if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+}));
 
-/* ── YT THUMB ── */
+// yt thumbnails
 document.querySelectorAll('.vcard-thumb').forEach(el=>{
-  const m=(el.style.backgroundImage||'').match(/vi\/([^/]+)\//);if(!m)return;
-  const id=m[1];const img=new Image();
-  img.onerror=()=>{el.style.backgroundImage=`url('https://img.youtube.com/vi/${id}/hqdefault.jpg')`;};
+  const m=(el.style.backgroundImage||'').match(/vi\/([^/]+)\//);
+  if(!m)return;
+  const id=m[1],img=new Image();
+  img.onerror=()=>{el.style.backgroundImage=`url('https://img.youtube.com/vi/${id}/hqdefault.jpg')`};
   img.src=`https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
 });
 
-/* ══════════════════════════════════════
-   MODAL + WEBHOOK DISCORD
-══════════════════════════════════════ */
-const WEBHOOK = 'https://discord.com/api/webhooks/1497701114991349783/nvBrMT3tBfw0J8uEgon1HskW4drx3r-Yhk-lQe4uvbJAGmvP7oKgjxESY_Nw1lQHN-GA';
+// FAQ accordion
+function toggleFaq(btn){
+  const a=btn.nextElementSibling;
+  const isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q.open').forEach(q=>{q.classList.remove('open');q.nextElementSibling.classList.remove('open')});
+  if(!isOpen){btn.classList.add('open');a.classList.add('open')}
+}
 
-let selectedPack = '';
-
-function openModal(preselect) {
-  const overlay = document.getElementById('modal');
-  // Reset si déjà soumis
-  document.getElementById('modal-form-wrap').style.display = 'block';
+// modal
+let selectedPack='';
+function openModal(p){
+  document.getElementById('modal-form').style.display='block';
   document.getElementById('modal-success').classList.remove('show');
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-
-  // Pré-sélectionner un pack si venu d'un bouton
-  if (preselect) {
-    selectedPack = preselect;
-    document.querySelectorAll('.pack-opt').forEach(el => {
-      el.classList.toggle('selected', el.dataset.pack === preselect);
-    });
-  }
+  document.getElementById('api-error').classList.remove('show');
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+  if(p){selectedPack=p;document.querySelectorAll('.pack-opt').forEach(el=>el.classList.toggle('selected',el.dataset.pack===p))}
 }
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}
+function closeOuter(e){if(e.target===document.getElementById('modal'))closeModal()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+function selectPack(el,p){selectedPack=p;document.querySelectorAll('.pack-opt').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');document.getElementById('err-pack').classList.remove('show')}
+function showErr(id,v){document.getElementById(id).classList.toggle('show',v)}
 
-function closeModal() {
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function closeModalOutside(e) {
-  if (e.target === document.getElementById('modal')) closeModal();
-}
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-function selectPack(el, pack) {
-  selectedPack = pack;
-  document.querySelectorAll('.pack-opt').forEach(p => p.classList.remove('selected'));
-  el.classList.add('selected');
-  document.getElementById('err-pack').classList.remove('show');
-}
-
-function showError(id, show) {
-  document.getElementById(id).classList.toggle('show', show);
-}
-
-async function submitOrder() {
-  // Validation
-  const name    = document.getElementById('f-name').value.trim();
-  const discord = document.getElementById('f-discord').value.trim();
-  const type    = document.getElementById('f-type').value;
-  const desc    = document.getElementById('f-desc').value.trim();
-
-  let valid = true;
-  if (!selectedPack) { showError('err-pack', true);    valid = false; } else showError('err-pack', false);
-  if (!name)         { showError('err-name', true);    valid = false; } else showError('err-name', false);
-  if (!discord)      { showError('err-discord', true); valid = false; } else showError('err-discord', false);
-  if (!type)         { showError('err-type', true);    valid = false; } else showError('err-type', false);
-  if (!desc)         { showError('err-desc', true);    valid = false; } else showError('err-desc', false);
-  if (!valid) return;
-
-  // UI loading
-  const btn = document.getElementById('submit-btn');
-  document.getElementById('submit-label').style.display = 'none';
-  document.getElementById('submit-spinner').style.display = 'flex';
-  btn.disabled = true;
-
-  // Payload Discord Embed
-  const now = new Date();
-  const payload = {
-    username: 'Slide Studio — Commandes',
-    avatar_url: 'https://cdn.discordapp.com/embed/avatars/0.png',
-    embeds: [{
-      title: '🎬 Nouvelle commande reçue !',
-      color: 0xE8642A,
-      fields: [
-        { name: '👤 Client',          value: `**${name}**`,     inline: true  },
-        { name: '💬 Discord',         value: `\`${discord}\``,  inline: true  },
-        { name: '📦 Pack choisi',     value: `**${selectedPack}**`, inline: false },
-        { name: '🎥 Type de vidéo',   value: type,              inline: true  },
-        { name: '📝 Description du projet', value: desc.length > 1000 ? desc.substring(0,997)+'...' : desc, inline: false },
-      ],
-      footer: { text: `Slide Studio · Commande du ${now.toLocaleDateString('fr-FR')} à ${now.toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'})}` },
-      thumbnail: { url: 'https://img.youtube.com/vi/-0JyB8aEMfI/mqdefault.jpg' }
-    }]
-  };
-
-  try {
-    const res = await fetch(WEBHOOK, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-
-    if (res.ok || res.status === 204) {
-      // Succès
-      document.getElementById('modal-form-wrap').style.display = 'none';
-      document.getElementById('modal-success').classList.add('show');
-    } else {
-      throw new Error('Webhook error ' + res.status);
-    }
-  } catch(err) {
-    alert('Une erreur est survenue. Contacte-nous directement sur Discord : discord.gg/KcwCGdQbQz');
-    console.error(err);
-  } finally {
-    document.getElementById('submit-label').style.display = 'inline';
-    document.getElementById('submit-spinner').style.display = 'none';
-    btn.disabled = false;
-  }
+async function submitOrder(){
+  const name=document.getElementById('f-name').value.trim();
+  const discord=document.getElementById('f-discord').value.trim();
+  const type=document.getElementById('f-type').value;
+  const desc=document.getElementById('f-desc').value.trim();
+  let ok=true;
+  if(!selectedPack){showErr('err-pack',true);ok=false}else showErr('err-pack',false);
+  if(!name){showErr('err-name',true);ok=false}else showErr('err-name',false);
+  if(!discord){showErr('err-discord',true);ok=false}else showErr('err-discord',false);
+  if(!type){showErr('err-type',true);ok=false}else showErr('err-type',false);
+  if(!ok)return;
+  const btn=document.getElementById('f-btn');
+  document.getElementById('f-label').style.display='none';
+  document.getElementById('f-spin').style.display='flex';
+  btn.disabled=true;
+  document.getElementById('api-error').classList.remove('show');
+  try{
+    const res=await fetch(`${BOT_API}/commande`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,discord,pack:selectedPack,type,desc:desc||'Non renseigné'})});
+    if(res.ok){document.getElementById('modal-form').style.display='none';document.getElementById('modal-success').classList.add('show')}
+    else throw new Error('err '+res.status);
+  }catch(e){console.error(e);document.getElementById('api-error').classList.add('show')}
+  finally{document.getElementById('f-label').style.display='inline';document.getElementById('f-spin').style.display='none';btn.disabled=false}
 }
 </script>
 </body>
